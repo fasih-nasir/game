@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --font_family_poppins:"Poppins", sans-serif;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+    font-family: var(--font_family_poppins);
+}
+
+/* NAVBAR LARGE CSS START */
+.lg_navbar  .dropdown-menu{
+transition: 0.5s ease-in-out !important;
+display: block;
+opacity: 0;
+visibility: hidden;
+}
+.lg_navbar .dropdown:hover .dropdown-menu{
+opacity: 1;
+visibility: visible;
+}
+.lg_navbar .dropdown-menu  .dropdown-item{
+    border: 0 !important;
+}
+.carousel-item{
+    height: 100vh ;
+    object-fit: cover;
+    background-size: cover;
+}
+.scroll_top_btn{
+    position: fixed;
+    bottom: 5%;
+    right: 1%;
+    z-index: 100;
+}
+.scroll_top_btn button{
+    border: 0;
+    padding: 10px 15px;
+    color: white;
+    background-color: black;
+    border-radius:50px ;
+}
+.offcanvas{
+    width: 75%;
+    transition: 0.5s ease;
+}
+/* NAVBAR LARGE CSS END */
