@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Male_Fashion Timeless Jewelry & Elegant Rings for Every Occasion">
+  <meta name="keywords" content="Male_Fashion, unica, creative, html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product | Global Impex</title>
+  <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+
+<body>
+  <main class="dash_main">
+    <div class="container py-4">
+      <div class="form-container">
+        <h4 class="mb-4">Create New product</h4>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="productTitle" class="form-label">product Title *</label>
+            <input type="text" class="form-control" id="productTitle">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="brandStore" class="form-label">Brand/Store *</label>
+            <select class="form-select" id="brandStore">
+              <option selected>-- None --</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category">
+              <option selected>-- None --</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="events" class="form-label">Events</label>
+            <select class="form-select" id="events">
+              <option selected>-- None --</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="productCode" class="form-label">product Code</label>
+            <input type="text" class="form-control" id="productCode">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="submittedBy" class="form-label">Submitted By</label>
+            <input type="text" class="form-control" id="submittedBy">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="affiliateUrl" class="form-label">Affiliate URL</label>
+            <input type="text" class="form-control" id="affiliateUrl">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="coverImage" class="form-label">Upload Cover Image</label>
+            <input type="file" class="form-control" id="coverImage" accept="image/*">
+            <small class="text-muted">Image link will be generated automatically</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="dateAvailable" class="form-label">Date Available</label>
+            <input type="text" class="form-control" id="dateAvailable" placeholder="mm/dd/yyyy">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="dateExpiry" class="form-label">Date Expiry</label>
+            <input type="text" class="form-control" id="dateExpiry" placeholder="mm/dd/yyyy">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="termsConditions" class="form-label">Terms & Conditions</label>
+          <div class="terms-box border rounded p-2" id="termsConditions">
+            1. Some exclusions apply.<br>
+            2. Cannot be used in conjunction with any other offer.<br>
+            3. For full Terms & Conditions please see website.
+          </div>
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary btn-save">
+            <i class="fas fa-save me-2"></i>Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase + Firestore + Storage -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+
+    // ========== Firebase Config ==========
+    const firebaseConfig = {
+      apiKey: "AIzaSyDSx8hc8SmUM_RPZbthzOr2fsJ5Qdu_zB0",
+      authDomain: "retail-b1ce9.firebaseapp.com",
+      projectId: "retail-b1ce9",
+      storageBucket: "retail-b1ce9.appspot.com",
+      messagingSenderId: "64360831699",
+      appId: "1:64360831699:web:f5826b6c327165d33c9226",
+      measurementId: "G-JF3BM9Z8C4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    // ===== Fetch products (Optional) =====
+    async function fetchproducts() {
+      const snapshot = await getDocs(collection(db, "products"));
+      snapshot.forEach((doc) => console.log("product:", doc.id, "=>", doc.data()));
+    }
+
+    // ===== Add product =====
+    async function addproduct() {
+      try {
+        const imageFile = document.getElementById("coverImage").files[0];
+        let imageUrl = "";
+
+        if (imageFile) {
+          const imageRef = ref(storage, "product_images/" + imageFile.name);
+          await uploadBytes(imageRef, imageFile);
+          imageUrl = await getDownloadURL(imageRef);
+          console.log("✅ Image uploaded:", imageUrl);
+        }
+
+        await addDoc(collection(db, "products"), {
+          productTitle: document.getElementById("productTitle").value || "Untitled product",
+          category: document.getElementById("category").value || "None",
+          submittedBy: document.getElementById("submittedBy").value || "Anonymous",
+          affiliateUrl: document.getElementById("affiliateUrl").value || "",
+          description: document.getElementById("description").value || "",
+          coverImage: imageUrl,
+          time: new Date().toISOString(),
+          server_time: serverTimestamp()
+        });
+
+        alert("✅ product added successfully!");
+      } catch (error) {
+        console.error("❌ Error adding product:", error);
+      }
+    }
+
+    document.querySelector(".btn-save").addEventListener("click", (e) => {
+      e.preventDefault();
+      addproduct();
+    });
+
+    fetchproducts();
+  </script>
+</body>
+</html>

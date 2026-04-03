@@ -1,66 +1,339 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- TITLE  -->
-    <title>FasihNasir | Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gearnix</title>
+  <link rel="shortcut icon" href="assets/logo/favicon.png" type="image/x-icon">
 
-    <!-- BOOTSTRAP 5 CDN CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- EXTERNEL FILE CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- FONT AWESOME (ICONS) CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+  <link rel="stylesheet" href="css/style.css">
+  <!-- ✅ Bootstrap 5 CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+    crossorigin="anonymous">
+
+  <!-- ✅ Font Awesome 6 -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-
 <body>
-    <!-- HEADER START -->
-   <div id="header"></div>
-    <!-- HEADER END -->
 
-    <!-- HERO SECTION START  -->
-     <main class="m-0 p-0">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade m-0 p-0" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://media.istockphoto.com/id/1352901605/photo/games-room-with-a-cyber-gamer-computer-3d-render-of-neon-lighting.jpg?s=612x612&w=0&k=20&c=Y3d4hOvVjh5N6YPbq48w6Kq75tcHe3gahvAo91u6Ydw=" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="https://media.istockphoto.com/id/1320158142/photo/on-cyber-gaming-championship-empty-gaming-station-with-players-computer-screen-showing-video.jpg?s=612x612&w=0&k=20&c=KXr3ahTOrPkQSbafrU6e93jMxjFDSNrD0ogJF_u0lEE=" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="https://media.istockphoto.com/id/2181018992/photo/computer-in-home-with-colorful-gpu-and-cpu-parts-panning-shot.jpg?s=612x612&w=0&k=20&c=COKpysPdADHww15xVXM7kp7ZRDe5m4sUZD7CCQOmGyI=" class="d-block w-100" alt="...">
-              </div>
+    <main>
+    <!-- ========== HEADER CODE START =========== -->
+    <section>
+        <div id="header" ></div>
+    </section>
+    <!-- ========== HEADER CODE START =========== -->
+<!-- ========= MAIN CODE START ============== -->
+
+    <!-- ============ BANNER CODE START ============= -->
+  <section id="hero-carousel" class="m-0 p-0  bg-gray home_slider">
+    <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active  d-flex flex-lg-row flex-column align-items-center">
+<div class="container-fluid  d-flex flex-lg-row flex-column align-items-center">
+    <div class="col-lg-5">
+    <h2 class="display-4">
+      	The Rise of Specialized	
+        <br>
+        Gaming Culture							
+    </h2>
+    <p>
+      Exploring the Diverse Ecosystem of Specialized Gaming Controllers	
+
+    </p>
+
+    <button>
+      <a href="">
+        Shop Now
+      </a>
+    </button>
+  </div>
+  <div class="col-lg-7  d-flex flex-row align-items-center justify-content-start">
+    <img src="assets/banner/banner-1.png" class="img-fluid img_banner col-12" alt="Banner-1">
+  </div>
+</div>
+    </div>
+    <div class="carousel-item d-none">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item d-none">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
+
+    <!-- ============ BANNER CODE END ============= -->
+
+
+
+    <!-- =========== OUR STORE CODE START =========== -->
+     <section>
+
+        <div class="container-fluid my-5 responsive d-none">
+            <div class="row d-flex flex-row align-items-center   mb-4">
+
+               <div class="col-6">
+                 <h2>Shop By Category</h2>
+                </div>
+               <div class="col-6 text-end ">
+               <a href="store.html" class="text-decoration-none">
+                 <button class="ms-auto bg-transparent border-0 d-flex justify-content-end flex-row align-items-center">
+                    <span>
+                        View All
+                    </span> <i class="hgi hgi-stroke hgi-arrow-right-05 fs-3 ms-3"></i>
+                </button>
+               </a>
+               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+            
+            <div class="row">
+                 <!-- Swiper -->
+  <div class="swiper mySwiper position-relative">
+    <div class="swiper-wrapper" id="store_innerhtml">
+   
+   
+    </div>
+    <div class="swiper-pagination bg-dange ms-auto col-2 "></div>
+</div>
+            </div>
+        </div>
+     </section>
+    <!-- =========== OUR STORE CODE END =========== -->
+
+
+
+    <!-- =========== CATEGORY CODE START =========== -->
+     <section>
+
+        <div class="container-fluid my-5 responsive">
+              <div class="row d-flex flex-row align-items-center   mb-4">
+
+               <div class="col-6">
+                  <h3>Shop By Category</h3>
+                </div>
+               <div class="col-6 text-end ">
+               <a href="categories.html" class="text-decoration-none">
+                 <button class="ms-auto bg-transparent border-0 d-flex justify-content-end flex-row fs-5 align-items-center">
+                    <span>
+                        View All
+                    </span> <i class="hgi hgi-stroke hgi-arrow-right-05 fs-2 ms-3"></i>
+                </button>
+               </a>
+               </div>
+            </div>
+          
+            <div class="row">
+                 <!-- Swiper -->
+  <div class="swiper mySwiper position-relative">
+    <div class="swiper-wrapper" id="category_innerhtml">
+   
+   
+    </div>
+    <div class="swiper-pagination bg-dange ms-auto col-2 "></div>
+</div>
+            </div>
+        </div>
+     </section>
+    <!-- =========== CATEGORY CODE END =========== -->
+
+    <!-- ============== Best Sellers CODE START ============== -->
+     <section class="bg-white py-2 rounded-4 responsive py-4 ">
+        <div class="container-fluid text-center bg-white">
+            <h2>Best Sellers</h2>
+            
+        </div>
+
+        <div class="container-fluid my-4 ">
+          
+            <div class="row g-3 align-items-stretch" id="product_home_innerhtml">
+
+        
+           <!-- ========= product CARD CODE START ========== -->
+          <div class="col-lg-3 d-flex flex-column h-100">
+            <div class="card col-12 border-0 h-100 shadow-none">
+
+                <div class="col-lg-11 mx-auto my-2 shadow-sm border-0 rounded-4 col-12 p-2 mb-2">
+                      <div class="col-12">
+                    <img src="${data.img}" class="img-fluid col-12 rounded-4 product_home_img" alt="">
+                </div>
+                <h5 class="py-2 fs-6 fw-medium my-3">${data.productTitle}</h5>
+                <div class="d-flex flex-row justify-content-between align-items-center ">
+                <div class="col-12 d-flex">
+                <small class="">from </small>
+                    <h6 >  <del class="px-1"> Rs ${data.discount_price ? data.discount_price : ""}</del> </h6>
+                                      <h6 class="px-1"> Rs ${data.price ? data.price : ""}</h6>
+                </div>
+ 
+                <div>
+               
+
+                <div>
+                 <button class="">
+                </div>
+                </button>
+                </div>
+
+
+                </div>
+
+                <!-- ======== REVEAL CODE START ======== -->
+              
+
+             <!-- ========= product MODAL CODE END ============= -->
+
+                 </div>
+                <!-- ======== REVEAL CODE END ======== -->
+
+                </div>
+              
+            </div>
           </div>
-     </main>
-     <!-- HERO SECTION END -->
-    <!-- FOOTER START -->
-   <div id="footer"></div>
+            <!-- ========= product CARD CODE END ========== -->
+    </div>
+    
+
+        </div>
+     </section>
+     <!-- ============= Best Sellers CODE END =============== -->
+
+
+
+
+ <!-- ============== New Arrivals CODE START ============== -->
+     <section class="bg-white py-2 rounded-4 responsive py-4 my-3">
+        <div class="container-fluid text-center bg-white">
+            <h2>New Arrivals</h2>
+            
+        </div>
+
+        <div class="container-fluid my-4 ">
+          
+            <div class="row g-3 align-items-stretch" id="arrival_home_innerhtml">
+
+
+    </div>
+    
+
+        </div>
+     </section>
+     <!-- ============= New Arrivals CODE END =============== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- =================== ABOUT SECTION CODE START ============== -->
+    <section>
+       <div class="container-fluid responsive py-5">
+  <div class="row text-center">
+
+    <!-- ===== ITEM 1 ===== -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="p-3 shadow-none rounded-3 bg-white">
+
+        <div class="mb-3">
+          <!-- ICON -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor">
+            <path d="M15.33 86.58h69.34s-30.67-40.37-69.34 0Z"></path>
+          </svg>
+        </div>
+
+        <h5 class="fw-semibold">Eco-Friendly Products</h5>
+        <p class="text-muted small">
+          Our items are selected with a focus on sustainability and environmental care.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- ===== ITEM 2 ===== -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="p-3 shadow-none rounded-3 bg-white">
+
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor">
+            <path d="M16.01 54.13h20.02v35.22H16.01z"></path>
+          </svg>
+        </div>
+
+        <h5 class="fw-semibold">Fast Support</h5>
+        <p class="text-muted small">
+          We are always ready to assist you quickly and ensure a smooth customer experience.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- ===== ITEM 3 ===== -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="p-3 shadow-none rounded-3 bg-white">
+
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor">
+            <path d="m44.36 67.09-2.17.01h20.46"></path>
+          </svg>
+        </div>
+
+        <h5 class="fw-semibold">Nationwide Shipping</h5>
+        <p class="text-muted small">
+          We deliver your orders across Pakistan, reaching cities and remote areas alike.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    </section>
+    <!-- =================== ABOUT SECTION CODE END ================== -->
+
+    <!-- ========= TABS CODE START =================== -->
       
-     <!-- FOOTER END -->
+    </main>
+    <!-- ========= MAIN CODE END ============== -->
+    
+    <!-- ========== FOOTER CODE START ============ -->
+     <div id="footer"></div>
+     <!-- =========== FOOTER CODE END ============= -->
 
-    <!-- BOOTSTRAP 5 CDN  JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <!-- EXTERNAL JS  -->
-    <script src="js/app.js"></script>
 
+  <!-- ✅ Bootstrap 5 JS (with Popper) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+    crossorigin="anonymous"></script>
+
+    <!-- =========== SWIPER CDN ========== -->
+       <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/app.js" type="module"></script>
 </body>
-
 </html>

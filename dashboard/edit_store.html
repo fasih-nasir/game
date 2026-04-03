@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description"
+            content="Male_Fashion Timeless Jewelry & Elegant Rings for Every Occasion">
+        <meta name="keywords" content="Male_Fashion, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard | Gearnix</title>
+        <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
+        <!-- Google Font -->
+                 <!-- Quill CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet">
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <!-- =========== MAIN CODE START ============= -->
+        <main class="dash_main">
+
+            <div class="d-flex align-items-start container-fluid dash_main_div">
+                <div id="nav_pills" class="col-lg-2 h-100"></div>
+                <div class="tab-content col-lg-10 " id="v-pills-tabContent">
+                    <!-- =========== HOME CODE START ============== -->
+                    <div class="tab-pane fade show active" id="v-pills-home"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab" tabindex="0">
+
+                        <div class="col-12 mx-0">
+                            <!-- ========= SEARCH CODE START ========= -->
+                            <div class="container-fluid mb-3 top_search_div">
+                                <div class="row">
+                                    <div class="col-lg-11">
+                                        <input class="form-control" type="search"
+                                            class="form-control"
+                                            placeholder="Seach Here">
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <button id="logout-btn"
+                                            class="bg_grey border-0 shadow-sm px-3 py-2">Logout</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ========= SEARCH CODE End ========= -->
+
+                            <!-- ====== TOP CARD'S CODE START ======== -->
+                                                       <div id="top_bar"></div>
+
+                            <!-- ====== TOP CARD'S CODE END ======== -->
+
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE START ========== -->
+
+                            <div class="container-fluid ">
+                             <div class="">
+
+<div class="container-fluid p-4 overflow_y">
+
+    <h4 class="mb-4">Edit Store </h4>
+
+<form id="storeForm" class="form row g-3 border  p-3 rounded" >
+<div class="d-flex flex-lg-wrap align-items-center justify-content-between  col-12">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="featured" id="featured" value="1">
+        <label class="form-check-label" for="featured">Featured</label>
+    </div>
+  
+<div class="form-check">
+        <input type="checkbox" class="form-check-input" name="recommended" id="recommended" value="1">
+        <label class="form-check-label" for="recommended">Recommended</label>
+    </div>
+      <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="covid_disable" id="covid_disable" value="1">
+    <label class="form-check-label" for="covid_disable">COVID-19 Disable</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" name="auto_sort" id="auto_sort" value="1">
+    <label class="form-check-label" for="auto_sort">Auto Sort</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" name="show_trending" id="show_trending" value="1">
+    <label class="form-check-label" for="show_trending">Show Trending Stores</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" name="student_discount" id="student_discount" value="1">
+    <label class="form-check-label" for="student_discount">Student Discount</label>
+</div>
+       <div class="col-lg-4 mx-auto my-3">
+      <select class="form-select " id="status_select" >
+        <option value="">Loading Status...</option>
+        <option value="active">Active</option>
+        <option value="disable">Disable</option>
+
+      </select>
+    </div>
+  
+</div>
+  <div class="col-lg-6 mb-2">
+       <label>Store Name:( Note ! Used Dash (-) Example Ali-Express)</label>
+    <input class="form-control" placeholder="Store Name" id="storeName">
+  </div>
+  <div class="col-lg-6 mb-2">
+    <label>Affiliate URL
+</label>
+
+  <input class="form-control" placeholder="Affiliate URL" type="url" id="storeLink" >
+
+  </div>
+  <div class="mb-2 col-lg-6">
+      <label for="storeSelect" class="form-label">Select Category</label>
+      <select class="form-select" id="categoryselect" >
+        <option value="">Loading Category...</option>
+      </select>
+    </div>
+  
+  <div class="col-lg-6 mb-2">
+  <label class="form-label">Store Logo:</label>
+
+  <img id="storeImgPreview"
+       src=""
+       class="img-fluid mb-2 d-none"
+       style="max-height:120px;">
+
+  <input class="form-control"
+         type="file"
+         id="storeImg"
+         accept="image/*">
+</div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_1" class="form-control py-2" placeholder="Facebook URL" aria-label="Facebook URL">
+  </div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_2" class="form-control py-2" placeholder="Twitter URL" aria-label="Twitter URL">
+  </div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_3" class="form-control py-2" placeholder="Instagram URL" aria-label="Instagram URL">
+  </div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_4" class="form-control py-2" placeholder="YouTube URL" aria-label="YouTube URL">
+  </div>
+ <div class="col-lg-6 mb-2">
+    <label>About:</label>
+    <textarea id="storeAbout" class="form-control" placeholder="About Store" ></textarea>
+  </div>
+   <div class="col-lg-6 mb-2">
+    <label>Desc:</label>
+    <textarea id="storeDesc" class="form-control" placeholder="Desc Store" ></textarea>
+  </div>
+  <div class="col-12 form-control">
+    <label for="" class="mb-2">FAQ (Heading + Answer - single field)</label>
+    <div id="editor">
+    </div>
+  <span class="fs_6 fw-medium">Enter FAQ content as HTML (use h3 for questions and p for answers). A rich editor is enabled below.</span>
+  </div>
+  <div class="card p-3 mb-3">
+  <h5 class="mb-3">SEO Store SEO Section</h5>
+
+  <div class="row mb-3">
+    <!-- Title Heading -->
+    <div class="col-md-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="title_heading" name="title_heading" placeholder="Title Heading">
+        <label for="title_heading">Title Heading</label>
+      </div>
+    </div>
+
+    <!-- SEO URL -->
+    <div class="col-md-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="seo_url" name="seo_url" placeholder="SEO URL">
+        <label for="seo_url">SEO URL *</label>
+      </div>
+    </div>
+
+    <!-- Meta Title -->
+    <div class="col-md-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="meta_title" name="meta_title" placeholder="Meta Title">
+        <label for="meta_title">Meta Title</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Keywords -->
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="meta_keywords" name="meta_keywords"
+           placeholder="Meta Keywords">
+    <label for="meta_keywords">Meta Keywords</label>
+    <small class="text-muted">
+      Enter keywords separated by commas. Example: sale, free delivery, student discount
+    </small>
+  </div>
+
+  <!-- Meta Description -->
+  <div class="form-floating mb-3">
+    <textarea class="form-control" id="meta_description" name="meta_description"
+              placeholder="Meta Description" style="height: 100px;"></textarea>
+    <label for="meta_description">Meta Description</label>
+  </div>
+
+  <!-- Canonical URL -->
+  <div class="form-floating mb-3">
+    <input type="url" class="form-control" id="canonical_url" name="canonical_url"
+           placeholder="Canonical URL">
+    <label for="canonical_url">Canonical URL</label>
+  </div>
+
+  <!-- Schema -->
+  <div class="form-floating">
+    <textarea class="form-control" id="schema" name="schema"
+              placeholder="Schema Markup (JSON-LD)" style="height: 150px;"></textarea>
+    <label for="schema">Schema Markup (JSON-LD)</label>
+  </div>
+</div>
+
+<div class="col-12 d-flex flex-row justify-content-center align-items-center">
+     <button type="submit" class="btn my-3 px-4 shadow-lg rounded bg text-white">Save Store</button>
+
+</div> 
+
+</form>
+
+</div>
+
+
+</div>
+
+                            </div>
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE END ========== -->
+
+                        </div>
+                    </div>
+                    <!-- =========== HOME CODE START ============== -->
+
+                   
+                </div>
+            </div>
+        </main>
+        <!-- ============= MAIN CODE END ============= -->
+
+        <!-- Js Plugins -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous">
+        </script>
+              <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+
+
+        <!-- Firebase and App Scripts -->
+        <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, getDocs,getDoc,doc ,deleteDoc, updateDoc ,addDoc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyAGvGo_Xnoe78FQoroWwy-ce0KGbjoDFDs",
+  authDomain: "gimpex-36c36.firebaseapp.com",
+  projectId: "gimpex-36c36",
+  storageBucket: "gimpex-36c36.firebasestorage.app",
+  messagingSenderId: "94177183875",
+  appId: "1:94177183875:web:0bbb05df6bcb4cfc40f3b6",
+  measurementId: "G-304FGPTCHZ"
+};
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app); // Proper initialization of auth
+    
+
+const db = getFirestore(app);
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // If the user is not logged in, redirect to login page
+                // window.location.href = 'login.html'; // Adjust path to login.html if needed
+            }
+        });
+
+        // Logout button functionality
+        const logoutBtn = document.getElementById('logout-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                // Redirect to login page after successful logout
+                window.location.href = 'login.html'; // Adjust path to login.html if needed
+            }).catch((error) => {
+                // Handle errors (optional)
+                console.error("Error logging out: ", error);
+            });
+        });
+
+
+         // ========== DOM References ==========
+        var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+
+        //  ========== GET DATA ACCORDING TO ID CODE START ==========
+
+         var page_id=window.location.href.split("id=")[1];
+
+
+        //  ========================= CODE START ====================
+        
+const categoryselect = document.getElementById("categoryselect");
+async function loadStores2() {
+  try {
+    const storeSnapshot = await getDocs(collection(db, "categories"));
+    
+    
+    categoryselect.innerHTML = `<option value="">Select Category</option>`;
+    storeSnapshot.forEach(doc => {
+      const data = doc.data();
+    
+     
+     
+      
+      categoryselect.innerHTML += `<option value="${data.pageTitle}">${data.pageTitle}</option>`;
+    });
+  } catch (err) {
+    console.error("Error fetching stores:", err);
+    categoryselect.innerHTML = `<option value="">Error loading Category</option>`;
+  }
+}
+loadStores2();
+
+
+        // ============================ CODE END =====================
+      const docRef = doc(db, "store", page_id);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  const data = docSnap.data();
+  if (data.image) {
+  const preview = document.getElementById("storeImgPreview");
+  preview.src = data.image;
+  preview.classList.remove("d-none");
+}
+// console.log(data);
+
+// console.log(dv
+var status_select=document.getElementById("status_select");
+  status_select.value=data.status || "";
+  // BASIC
+  storeName.value      = data.name || "";
+if (data.faq && data.faq.trim() !== "") {
+  // FAQ already exists → show it in editor
+  // console.log(data.faq);
+    quill.clipboard.dangerouslyPasteHTML(data.faq);
+  // quill.root.innerText = data.faq;
+} else {
+  // FAQ does not exist → empty editor
+  // quill.root.innerHTML = "";
+    quill.setText("");
+}
+
+  storeLink.value      = data.link || "";
+  storeAbout.value     = data.about || "";
+ storeDesc.value = data.description && data.description.trim() !== ""
+  ? data.description
+  : "";
+
+
+  categoryselect.value = data.category || "";
+
+  // SOCIAL
+  s_links_1.value = data.facebook || "";
+  s_links_2.value = data.twitter || "";
+  s_links_3.value = data.instagram || "";
+  s_links_4.value = data.youtube || "";
+
+ // ================= SEO AUTO FILL (SAFE) =================
+
+// Make sure seo object exists
+const seo = data.seo || {};
+
+// Title Heading
+title_heading.value    = seo.title_heading    || "";
+
+// SEO URL
+seo_url.value          = seo.seo_url          || "";
+
+// Meta Title
+meta_title.value       = seo.meta_title       || "";
+
+// Meta Keywords
+meta_keywords.value    = seo.meta_keywords    || "";
+
+// Meta Description
+meta_description.value = seo.meta_description || "";
+
+// Canonical URL
+canonical_url.value    = seo.canonical_url    || "";
+
+// Schema
+schema.value           = seo.schema           || "";
+
+
+  // CHECKBOXES
+  featured.checked    = data.featured === true;
+  recommended.checked = data.recommended === true;
+covid_disable.checked    = data.covid_disable === true;
+auto_sort.checked        = data.auto_sort === true;
+show_trending.checked    = data.show_trending === true;
+student_discount.checked = data.student_discount === true;
+  // IMAGE PREVIEW
+  if (data.img && document.getElementById("storeImgPreview")) {
+    storeImgPreview.src = data.img;
+  }
+
+} else {
+  console.log("No such document!");
+}
+
+
+        //  ========== GET DATA ACCORDING TO ID CODE END ==========
+
+
+
+        //  ============== ADD STORE CODE START ====================
+        //  ============== ADD STORE CODE START ====================
+storeForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const file = storeImg.files[0];
+
+  let imageUrl = "";
+
+  try {
+
+    // 🔹 If new image selected → upload
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "gimpex");
+
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/deq6ngtkw/image/upload",
+        { method: "POST", body: formData }
+      );
+
+      const imgData = await res.json();
+      imageUrl = imgData.secure_url;
+    }
+
+    await updateDoc(doc(db, "store", page_id), {
+      // BASIC
+      name: storeName.value.trim(),
+      faq:quill.root.innerHTML,
+      link: storeLink.value.trim(),
+      about: storeAbout.value.trim(),
+      status:status_select.value,
+      description: storeDesc.value.trim(),
+      category: categoryselect.value,
+
+      // SOCIAL
+      facebook: s_links_1.value.trim(),
+      twitter: s_links_2.value.trim(),
+      instagram: s_links_3.value.trim(),
+      youtube: s_links_4.value.trim(),
+
+      // SEO
+      title_heading: title_heading.value.trim(),
+      seo_url: seo_url.value.trim(),
+      meta_title: meta_title.value.trim(),
+      meta_keywords: meta_keywords.value.trim(),
+      meta_description: meta_description.value.trim(),
+      canonical_url: canonical_url.value.trim(),
+      schema: schema.value.trim(),
+
+      // CHECKBOX
+      featured: featured.checked,
+      recommended: recommended.checked,
+  covid_disable: covid_disable.checked,
+  auto_sort: auto_sort.checked,
+  show_trending: show_trending.checked,
+  student_discount: student_discount.checked,
+      // IMAGE (only if updated)
+      ...(imageUrl && { image: imageUrl }),
+
+      updatedAt: new Date().toISOString()
+    });
+
+    alert("✅ Store updated successfully!");
+
+  } catch (err) {
+    console.error(err);
+    alert("❌ Update failed!");
+  }
+});
+
+        // =============== ADD STORE CODE END =======================
+        // =============== ADD STORE CODE END =======================
+    </script>
+        <script src="js/app.js" type="module"></script>
+    </body>
+
+</html>

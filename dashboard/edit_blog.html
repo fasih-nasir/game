@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description"
+            content="Male_Fashion Timeless Jewelry & Elegant Rings for Every Occasion">
+        <meta name="keywords" content="Male_Fashion, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Blog | Gearnix</title>
+        <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
+        <!-- Google Font -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <!-- =========== MAIN CODE START ============= -->
+        <main class="dash_main">
+
+            <div class="d-flex align-items-start container-fluid dash_main_div">
+                <div id="nav_pills" class="col-lg-2 h-100"></div>
+                <div class="tab-content col-lg-10 " id="v-pills-tabContent">
+                    <!-- =========== HOME CODE START ============== -->
+                    <div class="tab-pane fade show active" id="v-pills-home"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab" tabindex="0">
+
+                        <div class="col-12 mx-0">
+                            <!-- ========= SEARCH CODE START ========= -->
+                            <div class="container-fluid mb-3 top_search_div">
+                                <div class="row">
+                                    <div class="col-lg-11">
+                                        <input class="form-control" type="search"
+                                            class="form-control"
+                                            placeholder="Seach Here">
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <button id="logout-btn"
+                                            class="bg_grey border-0 shadow-sm px-3 py-2">Logout</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ========= SEARCH CODE End ========= -->
+
+                            <!-- ====== TOP CARD'S CODE START ======== -->
+                                                       <div id="top_bar"></div>
+
+                            <!-- ====== TOP CARD'S CODE END ======== -->
+  <div class="row  my-2 px-4">
+                  <div
+                    class="col-lg-12 d-flex flex-row justify-content-between align-items-center">
+                    <h5>Manage Store</h5>
+                    <h5>Total Store : <span id="total_store">
+                        <div
+                          class="spinner-border spinner-border-sm  fw-lighter"
+                          role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </span></h5>
+                  </div>
+                </div>
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE START ========== -->
+
+                            <div class="container-fluid my-4 overflow_y ">
+<form id="editBlogForm" class="container my-4 row" enctype="multipart/form-data">
+  <input type="hidden" id="editBlogId">
+
+  <!-- Title -->
+  <div class="mb-3 col-lg-6">
+    <label>Title</label>
+    <input type="text" id="editTitle" class="form-control">
+  </div>
+
+  <!-- Author -->
+  <div class="mb-3 col-lg-6">
+    <label>Author</label>
+    <input type="text" id="editAuthor" class="form-control">
+  </div>
+
+  <!-- Status -->
+  <div class="mb-3 col-lg-6">
+    <label>Status</label>
+    <select id="editStatus" class="form-select">
+      <option value="draft">Draft</option>
+      <option value="published">Published</option>
+    </select>
+  </div>
+
+  <!-- Featured & Recommended -->
+  <div class="form-check mb-3">
+    <input type="checkbox" id="editFeatured" class="form-check-input">
+    <label class="form-check-label">Featured</label>
+  </div>
+  <div class="form-check mb-3">
+    <input type="checkbox" id="editRecommended" class="form-check-input">
+    <label class="form-check-label">Recommended</label>
+  </div>
+
+  <!-- Category -->
+  <div class="mb-3 col-lg-6">
+    <label>Category </label>
+   <select name="category_id" id="category"
+                class="form-select" required>
+          <option value="">Select Category</option>
+          <option value="30">Automotive</option>
+          <option value="32">Baby & Kids</option>
+          <option value="38">Books & Magazines</option>
+          <option value="34">Clothing & Accessories</option>
+          <option value="31">Computers & Software</option>
+          <option value="33">Department</option>
+          <option value="35">Education</option>
+          <option value="37">Electronics</option>
+          <option value="39">Entertainment</option>
+          <option value="36">Home & Garden</option>
+        </select>
+  </div>
+
+  <!-- Excerpt & Content -->
+  <div class="mb-3 col-lg-6">
+    <label>Excerpt</label>
+    <textarea id="editExcerpt" class="form-control"></textarea>
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Content</label>
+    <textarea id="editContent" class="form-control"></textarea>
+  </div>
+
+  <!-- SEO Section -->
+  <h5>SEO Section</h5>
+  <div class="mb-3 col-lg-6">
+    <label>Meta Title</label>
+    <input type="text" id="editMetaTitle" class="form-control">
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Slug</label>
+    <input type="text" id="editSlug" class="form-control">
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Sort Order</label>
+    <input type="number" id="editSortOrder" class="form-control">
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Meta Keywords</label>
+    <input type="text" id="editMetaKeywords" class="form-control">
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Meta Description</label>
+    <textarea id="editMetaDescription" class="form-control"></textarea>
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Canonical URL</label>
+    <input type="url" id="editCanonical" class="form-control">
+  </div>
+  <div class="mb-3 col-lg-6">
+    <label>Schema</label>
+    <textarea id="editSchema" class="form-control"></textarea>
+  </div>
+
+  <!-- Image -->
+  <div class="mb-3 col-lg-6">
+    <label>Image</label>
+    <input type="file" id="editImage" class="form-control">
+    <img id="editImagePreview" class="img-fluid mt-2" style="max-height:150px">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update Blog</button>
+</form>
+
+
+
+                            </div>
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE END ========== -->
+
+                        </div>
+                    </div>
+                    <!-- =========== HOME CODE START ============== -->
+
+                   
+                </div>
+            </div>
+        </main>
+        <!-- ============= MAIN CODE END ============= -->
+
+        <!-- Js Plugins -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Firebase and App Scripts -->
+        <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import {  getFirestore,
+  collection,
+  getDocs,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyAGvGo_Xnoe78FQoroWwy-ce0KGbjoDFDs",
+  authDomain: "gimpex-36c36.firebaseapp.com",
+  projectId: "gimpex-36c36",
+  storageBucket: "gimpex-36c36.firebasestorage.app",
+  messagingSenderId: "94177183875",
+  appId: "1:94177183875:web:0bbb05df6bcb4cfc40f3b6",
+  measurementId: "G-304FGPTCHZ"
+};
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app); // Proper initialization of auth
+    
+
+const db = getFirestore(app);
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // If the user is not logged in, redirect to login page
+                // window.location.href = 'login.html'; // Adjust path to login.html if needed
+            }
+        });
+
+        // Logout button functionality
+        const logoutBtn = document.getElementById('logout-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                // Redirect to login page after successful logout
+                window.location.href = 'login.html'; // Adjust path to login.html if needed
+            }).catch((error) => {
+                // Handle errors (optional)
+                console.error("Error logging out: ", error);
+            });
+        });
+
+
+         // ========== DOM References ==========
+   
+
+const categorySelect = document.getElementById("category");
+const categoryCollection = collection(db, "blog_categories");
+
+// Real-time listener to populate select
+onSnapshot(categoryCollection, (snapshot) => {
+  // Clear previous options except the first placeholder
+  categorySelect.innerHTML = '<option value="">-- Select Category --</option>';
+
+  snapshot.docs.forEach(docItem => {
+    const data = docItem.data();
+console.log(data);
+
+    const option = document.createElement("option");
+    option.value = data.name;        // you can use ID as value
+    option.textContent = data.name;   // name shown to user
+    categorySelect.appendChild(option);
+  });
+});
+
+        //  ============== READ STORE CODE START ====================
+ // ============== GET BLOGS & SHOW IN TABLE ====================
+// ============== GET BLOGS & SHOW IN TABLE ====================
+const params = new URLSearchParams(window.location.search);
+const blogId = params.get("id");
+
+const editBlogForm = document.getElementById("editBlogForm");
+const editImagePreview = document.getElementById("editImagePreview");
+
+async function loadBlogForEdit() {
+  const snap = await getDoc(doc(db, "blog", blogId));
+  const blog = snap.data();
+
+  document.getElementById("editBlogId").value = blogId;
+  document.getElementById("editTitle").value = blog.title;
+  document.getElementById("editAuthor").value = blog.author;
+  document.getElementById("editStatus").value = blog.status;
+  document.getElementById("editFeatured").checked = blog.featured;
+  document.getElementById("editRecommended").checked = blog.recommended;
+  document.getElementById("category").value = blog.category_id;
+  document.getElementById("editExcerpt").value = blog.excerpt;
+  document.getElementById("editContent").value = blog.content;
+
+  document.getElementById("editMetaTitle").value = blog.seo?.meta_title || "";
+  document.getElementById("editSlug").value = blog.seo?.slug || "";
+  document.getElementById("editSortOrder").value = blog.seo?.sort_order || 0;
+  document.getElementById("editMetaKeywords").value = blog.seo?.meta_keywords || "";
+  document.getElementById("editMetaDescription").value = blog.seo?.meta_description || "";
+  document.getElementById("editCanonical").value = blog.seo?.canonical_url || "";
+  document.getElementById("editSchema").value = blog.seo?.schema || "";
+
+  if (blog.image) editImagePreview.src = blog.image;
+}
+
+loadBlogForEdit();
+
+editBlogForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // Optional: upload new image to Cloudinary here if changed
+  const updatedData = {
+    title: document.getElementById("editTitle").value,
+    author: document.getElementById("editAuthor").value,
+    status: document.getElementById("editStatus").value,
+    featured: document.getElementById("editFeatured").checked,
+    recommended: document.getElementById("editRecommended").checked,
+    category_id: document.getElementById("category").value,
+    excerpt: document.getElementById("editExcerpt").value,
+    content: document.getElementById("editContent").value,
+    seo: {
+      meta_title: document.getElementById("editMetaTitle").value,
+      slug: document.getElementById("editSlug").value,
+      sort_order: Number(document.getElementById("editSortOrder").value),
+      meta_keywords: document.getElementById("editMetaKeywords").value,
+      meta_description: document.getElementById("editMetaDescription").value,
+      canonical_url: document.getElementById("editCanonical").value,
+      schema: document.getElementById("editSchema").value
+    }
+  };
+
+  await updateDoc(doc(db, "blog", blogId), updatedData);
+  alert("✅ Blog updated successfully!");
+});
+
+        // =============== READ STORE CODE END =======================
+    </script>
+        <script src="js/app.js" type="module"></script>
+    </body>
+
+</html>

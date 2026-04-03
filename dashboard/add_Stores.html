@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description"
+            content="Male_Fashion Timeless Jewelry & Elegant Rings for Every Occasion">
+        <meta name="keywords" content="Male_Fashion, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard | Gearnix</title>
+        <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
+          <!-- Quill CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet">
+
+        <!-- Google Font -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <!-- =========== MAIN CODE START ============= -->
+        <main class="dash_main">
+
+            <div class="d-flex align-items-start container-fluid dash_main_div">
+                <div id="nav_pills" class="col-lg-2 h-100"></div>
+                <div class="tab-content col-lg-10 " id="v-pills-tabContent">
+                    <!-- =========== HOME CODE START ============== -->
+                    <div class="tab-pane fade show active" id="v-pills-home"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab" tabindex="0">
+
+                        <div class="col-12 mx-0">
+                            <!-- ========= SEARCH CODE START ========= -->
+                            <div class="container-fluid mb-3 top_search_div">
+                                <div class="row">
+                                    <div class="col-lg-11">
+                                        <input class="form-control" type="search"
+                                            class="form-control"
+                                            placeholder="Seach Here">
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <button id="logout-btn"
+                                            class="bg_grey border-0 shadow-sm px-3 py-2">Logout</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ========= SEARCH CODE End ========= -->
+
+                            <!-- ====== TOP CARD'S CODE START ======== -->
+                                                       <div id="top_bar"></div>
+
+                            <!-- ====== TOP CARD'S CODE END ======== -->
+
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE START ========== -->
+
+                            <div class="container-fluid overflow_y ">
+                             <div class="my-4">
+  <h3 class="mb-4">Add Store Form</h3>
+<form id="storeForm" class="form row g-3 border  p-3 rounded" >
+<div class="d-flex justify-content-between">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="featured" id="featured" value="1">
+        <label class="form-check-label" for="featured">Featured</label>
+    </div>
+<div class="form-check">
+        <input type="checkbox" class="form-check-input" name="recommended" id="recommended" value="1">
+        <label class="form-check-label" for="recommended">Recommended</label>
+    </div>
+    <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="covid_disable" id="covid_disable" value="1">
+    <label class="form-check-label" for="covid_disable">COVID-19 Disable</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" name="auto_sort" id="auto_sort" value="1">
+    <label class="form-check-label" for="auto_sort">Auto Sort</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" name="show_trending" id="show_trending" value="1">
+    <label class="form-check-label" for="show_trending">Show Trending Stores</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" name="student_discount" id="student_discount" value="1">
+    <label class="form-check-label" for="student_discount">Student Discount</label>
+</div>
+</div>
+  <div class="col-lg-6 mb-2">
+    <label>Store Name:( Note ! Used Dash (-) Example Ali-Express)</label>
+    <input class="form-control" placeholder="Store Name" id="storeName" required>
+  </div>
+  <div class="col-lg-6 mb-2">
+    <label>Affiliate URL
+</label>
+
+  <input class="form-control" placeholder="Affiliate URL" type="url" id="storeLink" >
+
+  </div>
+  <div class="mb-2 col-lg-6">
+      <label for="storeSelect" class="form-label">Select Category</label>
+      <select class="form-select" id="categoryselect" required>
+        <option value="">Loading Category...</option>
+      </select>
+    </div>
+  
+  <div class="col-lg-6 mb-2">
+    <label class="form-label">Store Logo:</label>
+    <input class="form-control" placeholder="Store Logo / Image" type="file" id="storeImg" accept="image/*" required>
+  </div>
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_1" class="form-control py-2" placeholder="Facebook URL" aria-label="Facebook URL">
+  </div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_2" class="form-control py-2" placeholder="Twitter URL" aria-label="Twitter URL">
+  </div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_3" class="form-control py-2" placeholder="Instagram URL" aria-label="Instagram URL">
+  </div>
+
+  <div class="col-12 col-md-3">
+    <input type="url" id="s_links_4" class="form-control py-2" placeholder="YouTube URL" aria-label="YouTube URL">
+  </div>
+ <div class="col-lg-6 mb-2">
+    <label>About:</label>
+    <textarea id="storeAbout" class="form-control" placeholder="About Store"  required></textarea>
+  </div>
+   <div class="col-lg-6 mb-2">
+    <label>Desc:</label>
+    <textarea id="storeDesc" class="form-control" placeholder="Desc Store"  required></textarea>
+  </div>
+  <div class="col-12 form-control">
+    <label for="" class="mb-2">FAQ (Heading + Answer - single field)</label>
+    <div id="editor">
+    </div>
+  <span class="fs_6 fw-medium">Enter FAQ content as HTML (use h3 for questions and p for answers). A rich editor is enabled below.</span>
+  </div>
+  <div class="card p-3 mb-3">
+  <h5 class="mb-3">SEO Store SEO Section</h5>
+
+  <div class="row mb-3">
+    <!-- Title Heading -->
+    <div class="col-md-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="title_heading" name="title_heading" placeholder="Title Heading">
+        <label for="title_heading">Title Heading</label>
+      </div>
+    </div>
+
+    <!-- SEO URL -->
+    <div class="col-md-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="seo_url" name="seo_url" placeholder="SEO URL" required>
+        <label for="seo_url">SEO URL *</label>
+      </div>
+    </div>
+
+    <!-- Meta Title -->
+    <div class="col-md-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="meta_title" name="meta_title" placeholder="Meta Title">
+        <label for="meta_title">Meta Title</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Keywords -->
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="meta_keywords" name="meta_keywords"
+           placeholder="Meta Keywords">
+    <label for="meta_keywords">Meta Keywords</label>
+    <small class="text-muted">
+      Enter keywords separated by commas. Example: sale, free delivery, student discount
+    </small>
+  </div>
+
+  <!-- Meta Description -->
+  <div class="form-floating mb-3">
+    <textarea class="form-control" id="meta_description" name="meta_description"
+              placeholder="Meta Description" style="height: 100px;"></textarea>
+    <label for="meta_description">Meta Description</label>
+  </div>
+
+  <!-- Canonical URL -->
+  <div class="form-floating mb-3">
+    <input type="url" class="form-control" id="canonical_url" name="canonical_url"
+           placeholder="Canonical URL">
+    <label for="canonical_url">Canonical URL</label>
+  </div>
+
+  <!-- Schema -->
+  <div class="form-floating">
+    <textarea class="form-control" id="schema" name="schema"
+              placeholder="Schema Markup (JSON-LD)" style="height: 150px;"></textarea>
+    <label for="schema">Schema Markup (JSON-LD)</label>
+  </div>
+</div>
+
+<div class="col-12 d-flex flex-row justify-content-center align-items-center">
+     <button type="submit" class="btn my-3 px-4 shadow-lg rounded bg text-white">Save Store</button>
+
+</div> 
+
+</form>
+
+
+</div>
+
+                            </div>
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE END ========== -->
+
+                        </div>
+                    </div>
+                    <!-- =========== HOME CODE START ============== -->
+
+                   
+                </div>
+            </div>
+        </main>
+        <!-- ============= MAIN CODE END ============= -->
+
+        <!-- Js Plugins -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+
+
+        <!-- Firebase and App Scripts -->
+        <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, getDocs,getDoc,doc ,deleteDoc, updateDoc ,addDoc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyAGvGo_Xnoe78FQoroWwy-ce0KGbjoDFDs",
+  authDomain: "gimpex-36c36.firebaseapp.com",
+  projectId: "gimpex-36c36",
+  storageBucket: "gimpex-36c36.firebasestorage.app",
+  messagingSenderId: "94177183875",
+  appId: "1:94177183875:web:0bbb05df6bcb4cfc40f3b6",
+  measurementId: "G-304FGPTCHZ"
+};
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app); // Proper initialization of auth
+    
+
+const db = getFirestore(app);
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // If the user is not logged in, redirect to login page
+                // window.location.href = 'login.html'; // Adjust path to login.html if needed
+            }
+        });
+
+        // Logout button functionality
+        const logoutBtn = document.getElementById('logout-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                // Redirect to login page after successful logout
+                window.location.href = 'login.html'; // Adjust path to login.html if needed
+            }).catch((error) => {
+                // Handle errors (optional)
+                console.error("Error logging out: ", error);
+            });
+        });
+
+
+         // ========== DOM References ==========
+   
+       
+
+const categoryselect = document.getElementById("categoryselect");
+async function loadStores2() {
+  try {
+    const storeSnapshot = await getDocs(collection(db, "categories"));
+    
+    
+    categoryselect.innerHTML = `<option value="">Select Store</option>`;
+    storeSnapshot.forEach(doc => {
+      const data = doc.data();
+
+     
+      
+      categoryselect.innerHTML += `<option value="${data.metaTitle}">${data.metaTitle}</option>`;
+    });
+  } catch (err) {
+    console.error("Error fetching stores:", err);
+    categoryselect.innerHTML = `<option value="">Error loading stores</option>`;
+  }
+}
+loadStores2();
+ //  =============== RICH TEXT CODE START =====================
+        var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+
+        // ================ RICH TEXT CODE END ======================
+        //  ============== ADD STORE CODE START ====================
+   const storeForm = document.getElementById("storeForm");
+const preview = document.getElementById("preview");
+
+storeForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+   // ================= BASIC INFO =================
+   const featuredCheckbox = document.getElementById("featured").checked;
+const recommendedCheckbox = document.getElementById("recommended").checked;
+
+  const storeNameValue      = document.getElementById("storeName").value;
+  const storeLinkValue      = document.getElementById("storeLink").value;
+  const categoryValue       = document.getElementById("categoryselect").value;
+  const storeAboutValue     = document.getElementById("storeAbout").value;
+  const storeDescValue      = document.getElementById("storeDesc").value;
+
+  // Image (file input)
+  const file        = document.getElementById("storeImg").files[0];
+
+  // ================= SOCIAL LINKS =================
+  const facebookValue   = document.getElementById("s_links_1").value;
+  const twitterValue    = document.getElementById("s_links_2").value;
+  const instagramValue  = document.getElementById("s_links_3").value;
+  const youtubeValue    = document.getElementById("s_links_4").value;
+
+  // ================= FAQ EDITOR =================
+  const faqValue = document.getElementById("editor").innerHTML;
+const covid_disable    = document.getElementById("covid_disable").checked;
+const auto_sort        = document.getElementById("auto_sort").checked;
+const show_trending    = document.getElementById("show_trending").checked;
+const student_discount = document.getElementById("student_discount").checked;
+  // ================= SEO FIELDS =================
+  const titleHeadingValue   = document.getElementById("title_heading").value;
+  const seoUrlValue         = document.getElementById("seo_url").value;
+  const metaTitleValue      = document.getElementById("meta_title").value;
+  const metaKeywordsValue   = document.getElementById("meta_keywords").value;
+  const metaDescriptionValue= document.getElementById("meta_description").value;
+  const canonicalUrlValue   = document.getElementById("canonical_url").value;
+  const schemaValue         = document.getElementById("schema").value;
+
+ 
+  try {
+    // ✅ Cloudinary config
+    const cloudName = "dabky3wky";      // your Cloudinary cloud_name
+    const uploadPreset = "gimpex";      // your unsigned preset
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
+
+    // ✅ Upload image to Cloudinary
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+   var imageUrl = data.secure_url;
+    // console.log("Uploaded Image URL:", imageUrl);
+
+    // ✅ Save to Firestore in "store" collection
+    const storeCollection = collection(db, "store");
+    await addDoc(storeCollection, {
+     // ===== BASIC INFO =====
+  name: storeNameValue,
+  category: categoryValue,
+  link: storeLinkValue || "",
+  about: storeAboutValue || "",
+  description: storeDescValue || "",
+  image: imageUrl || "",
+featured: featuredCheckbox,
+  recommended: recommendedCheckbox,
+ 
+  covid_disable: covid_disable,
+  auto_sort: auto_sort,
+  show_trending: show_trending,
+  student_discount: student_discount,
+  // ===== SOCIAL LINKS =====
+  social_links: {
+    facebook: facebookValue || "",
+    twitter: twitterValue || "",
+    instagram: instagramValue || "",
+    youtube: youtubeValue || ""
+  },
+
+  // ===== FAQ / RICH TEXT =====
+  faq: faqValue || "",
+
+  // ===== SEO DATA =====
+  seo: {
+    title_heading: titleHeadingValue || "",
+    seo_url: seoUrlValue || "",
+    meta_title: metaTitleValue || "",
+    meta_keywords: metaKeywordsValue || "",
+    meta_description: metaDescriptionValue || "",
+    canonical_url: canonicalUrlValue || "",
+    schema_markup: schemaValue || ""
+  },
+
+  // ===== META =====
+  status: "active",
+  createdAt: new Date().toISOString()
+
+    });
+
+
+    alert("✅ Store data saved successfully!");
+    storeForm.reset();
+
+  } catch (err) {
+    console.error(err);
+    alert("❌ Error uploading image or saving data!");
+  }
+});
+        // =============== ADD STORE CODE END =======================
+    </script>
+        <script src="js/app.js" type="module"></script>
+    </body>
+
+</html>

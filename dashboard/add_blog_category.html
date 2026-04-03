@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description"
+            content="Male_Fashion Timeless Jewelry & Elegant Rings for Every Occasion">
+        <meta name="keywords" content="Male_Fashion, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard | Gearnix</title>
+        <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
+        <!-- Google Font -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <!-- =========== MAIN CODE START ============= -->
+        <main class="dash_main">
+
+            <div class="d-flex align-items-start container-fluid dash_main_div">
+                <div id="nav_pills" class="col-lg-2 h-100"></div>
+                <div class="tab-content col-lg-10 " id="v-pills-tabContent">
+                    <!-- =========== HOME CODE START ============== -->
+                    <div class="tab-pane fade show active" id="v-pills-home"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab" tabindex="0">
+
+                        <div class="col-12 mx-0">
+                            <!-- ========= SEARCH CODE START ========= -->
+                            <div class="container-fluid mb-3 top_search_div">
+                                <div class="row">
+                                    <div class="col-lg-11">
+                                        <input type="search"
+                                            class="form-control"
+                                            placeholder="Seach Here">
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <button id="logout-btn"
+                                            class="bg_grey border-0 shadow-sm px-3 py-2">Logout</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ========= SEARCH CODE End ========= -->
+
+                            <!-- ====== TOP CARD'S CODE START ======== -->
+                                                       <div id="top_bar"></div>
+
+                            <!-- ====== TOP CARD'S CODE END ======== -->
+
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE START ========== -->
+
+                      
+                            <!-- ========= ADD PRODUCT/CATEOGERY CODE END ========== -->
+
+                        </div>
+                    </div>
+                    <!-- =========== HOME CODE START ============== -->
+
+                    <!-- ================ ADD PRODUCT CODE START ============ -->
+        <!-- HTML -->
+<div class="container-fluid mt-5">
+  <h2 class="mb-4 text-center">Blog Category View</h2>
+
+ <div class="col-12 d-flex flex-lg-row justify-content-around">
+<div class="col-lg-3 bg-gray shadow-sm py-4 px-3 round">
+    <h5 class="">Add Category</h5>
+         <form id="categoryForm" class="mb-3">
+    <input type="text" id="categoryInput" placeholder="Blog Category Name" class="form-control mb-2" required>
+    <button type="submit" class="btn bg text-white col-12">Add Category</button>
+  </form>
+</div>
+<div class="col-lg-8 bg-gray shadow-sm py-4 px-3 round">
+    <h5>View Category</h5>
+    <div id="categoriesList" class="list-group my-2">
+    <!-- Categories will appear here -->
+  </div>
+</div>
+ </div>
+
+  
+</div>
+
+<!-- Bootstrap Modal for Edit -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="editForm" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="editCategoryName" class="form-control mb-3" required>
+        <select id="editCategoryStatus" class="form-select">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="deleteCategoryBtn">Delete</button>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+                    <!-- ================ ADD PRODUCT CODE END ============ -->
+              
+                </div>
+            </div>
+        </main>
+        <!-- ============= MAIN CODE END ============= -->
+
+        <!-- Js Plugins -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Firebase and App Scripts -->
+   <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc ,onSnapshot,doc,updateDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        const firebaseConfig = {
+  apiKey: "AIzaSyAGvGo_Xnoe78FQoroWwy-ce0KGbjoDFDs",
+  authDomain: "gimpex-36c36.firebaseapp.com",
+  projectId: "gimpex-36c36",
+  storageBucket: "gimpex-36c36.firebasestorage.app",
+  messagingSenderId: "94177183875",
+  appId: "1:94177183875:web:0bbb05df6bcb4cfc40f3b6",
+  measurementId: "G-304FGPTCHZ"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// References
+const categoryCollection = collection(db, "blog_categories");
+const categoryForm = document.getElementById("categoryForm");
+const categoryInput = document.getElementById("categoryInput");
+const categoriesList = document.getElementById("categoriesList");
+
+// Modal elements
+const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+const editForm = document.getElementById("editForm");
+const editCategoryName = document.getElementById("editCategoryName");
+const editCategoryStatus = document.getElementById("editCategoryStatus");
+const deleteCategoryBtn = document.getElementById("deleteCategoryBtn");
+
+let currentEditId = null;
+
+// Add new category
+categoryForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = categoryInput.value.trim();
+  if (name) {
+    await addDoc(categoryCollection, { name, active: true });
+    categoryInput.value = "";
+  }
+});
+
+// Render category
+function renderCategory(docData, docId) {
+  const div = document.createElement("div");
+  div.setAttribute("data-id", docId);
+  div.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center","my-2");
+
+  const statusText = docData.active ? "Active" : "Inactive";
+
+  div.innerHTML = `
+    <span>${docData.name} (<strong>${statusText}</strong>)</span>
+    <button class="btn btn-sm  editBtn"><i class="hgi hgi-stroke hgi-pencil-edit-02 fs-4"></i></button>
+  `;
+
+  // Edit button opens modal
+  div.querySelector(".editBtn").addEventListener("click", () => {
+    currentEditId = docId;
+    editCategoryName.value = docData.name;
+    editCategoryStatus.value = docData.active ? "true" : "false";
+    editModal.show();
+  });
+
+  categoriesList.appendChild(div);
+}
+
+// Real-time listener
+onSnapshot(categoryCollection, (snapshot) => {
+  categoriesList.innerHTML = "";
+  snapshot.docs.forEach(docItem => renderCategory(docItem.data(), docItem.id));
+});
+
+// Save changes from modal
+editForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!currentEditId) return;
+  const docRef = doc(db, "blog_categories", currentEditId);
+  await updateDoc(docRef, {
+    name: editCategoryName.value.trim(),
+    active: editCategoryStatus.value === "true"
+  });
+  editModal.hide();
+});
+
+// Delete category from modal
+deleteCategoryBtn.addEventListener("click", async () => {
+  if (!currentEditId) return;
+  if (confirm("Are you sure you want to delete this category?")) {
+    const docRef = doc(db, "blog_categories", currentEditId);
+    await deleteDoc(docRef);
+    editModal.hide();
+  }
+});
+</script>
+        <script src="js/app.js" type="module"></script>
+    </body>
+
+</html>

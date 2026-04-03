@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description"
+      content="Male_Fashion Timeless Jewelry & Elegant Rings for Every Occasion">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>product | Veroroma | Timeless Jewelry & Elegant Rings for Every
+      Occasion</title>
+    <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
+    <!-- Google Font -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+  </head>
+
+  <body>
+    <!-- =========== MAIN CODE START ============= -->
+    <main class="dash_main">
+
+      <div class="d-flex align-items-start container-fluid dash_main_div">
+        <div id="nav_pills" class="col-lg-2 h-100"></div>
+        <div class="tab-content col-lg-10 " id="v-pills-tabContent">
+          <!-- =========== HOME CODE START ============== -->
+          <div class="tab-pane fade show active" id="v-pills-home"
+            role="tabpanel"
+            aria-labelledby="v-pills-home-tab" tabindex="0">
+
+            <div class="col-12 mx-0">
+              <!-- ========= SEARCH CODE START ========= -->
+              <div class="container-fluid mb-3">
+                <div class="row">
+                  <div class="col-lg-11">
+                    <input type="search" class="form-control"
+                      placeholder="Seach Here">
+                  </div>
+                  <div class="col-lg-1">
+                    <button id="logout-btn"
+                      class="bg_grey border-0 shadow-sm px-3 py-2">Logout</button>
+
+                  </div>
+                </div>
+              </div>
+              <!-- ========= SEARCH CODE End ========= -->
+          <!-- ====== TOP CARD'S CODE START ======== -->
+                                                       <div id="top_bar"></div>
+
+                            <!-- ====== TOP CARD'S CODE END ======== -->
+              <!-- ========== ADD PRODUCT CODE START ============= -->
+              <div class="container-fluid py-2 px-3 overflow_y">
+
+                <!-- ======== MANAGE PRODCUT CODE START ======== -->
+                <div class="row  py-1">
+                
+                </div>
+                <!-- ======== MANAGE PRODCUT CODE END ======== -->
+
+                <!-- ======== FILTER PRODUCT CODE START ======== -->
+               <!-- ================= REVIEW FORM ================= -->
+<div class="card p-4 shadow-sm mb-4 ">
+  <h4 class="mb-3">Add Review</h4>
+
+  <form id="reviewForm" class="row g-2">
+    <input type="hidden" id="editId">
+
+    <div class="mb-2 col-lg-4">
+      <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+    </div>
+
+    <div class="mb-2 col-lg-4">
+      <input type="text" id="country" class="form-control" placeholder="Country" required>
+    </div>
+
+    <!-- Rating as Number Input -->
+    <div class="mb-2 col-lg-4">
+      <!-- <label for="rating" class="form-label"> </label> -->
+      <input type="number" id="rating" class="form-control" min="1" max="5" placeholder="Enter rating Rating (1-5) Write in Number" required>
+    </div>
+
+    <div class="mb-3 col-lg-12">
+      <textarea id="reviewText" class="form-control" placeholder="Write your review" required></textarea>
+    </div>
+
+    <button type="submit" class="btn bg text-white col-auto">Submit Review</button>
+  </form>
+</div>
+
+  <!-- ================= REVIEW LIST ================= -->
+<!-- <h5>Review Here</h5> -->
+<div class="ps-2">
+<h4>Review Here</h4>
+
+</div>  
+<div id="reviewList" class="row g-1"></div>
+
+                <!-- ======== FILTER PRODUCT CODE END ======== -->
+
+              </div>
+              <!-- ========== ADD PRODUCT CODE END ============= -->
+
+            </div>
+          </div>
+          <!-- =========== HOME CODE START ============== -->
+
+        </div>
+      </div>
+
+      <!-- ============= EDIT PRODUCT CODE START ================= -->
+      <!-- Modal -->
+    
+      <!-- =========== EDIT PRODUCT CODE END ====================== -->
+    </main>
+    <!-- ============= MAIN CODE END ============= -->
+
+    <!-- Js Plugins -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous">
+        </script>
+
+    <!-- Firebase and App Scripts -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+
+  import { getFirestore, collection, getDocs,getDoc,doc ,addDoc,deleteDoc, updateDoc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    const firebaseConfig = {
+  apiKey: "AIzaSyAGvGo_Xnoe78FQoroWwy-ce0KGbjoDFDs",
+  authDomain: "gimpex-36c36.firebaseapp.com",
+  projectId: "gimpex-36c36",
+  storageBucket: "gimpex-36c36.firebasestorage.app",
+  messagingSenderId: "94177183875",
+  appId: "1:94177183875:web:0bbb05df6bcb4cfc40f3b6",
+  measurementId: "G-304FGPTCHZ"
+};
+const app = initializeApp(firebaseConfig);
+
+ 
+    
+
+const db = getFirestore(app);
+    // ========== DOM References ==========
+
+    (app);
+
+// const productTableBody = document.getElementById("prodcut_of_home_page");
+
+// Fetch all products
+const reviewForm = document.getElementById("reviewForm");
+
+reviewForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const country = document.getElementById("country").value.trim();
+  const rating = parseInt(document.getElementById("rating").value);
+  const reviewText = document.getElementById("reviewText").value.trim();
+  const editId = document.getElementById("editId").value;
+
+  if (!name || !country || !reviewText || !rating || rating < 1 || rating > 5) {
+    alert("Please fill all fields correctly (Rating 1-5)");
+    return;
+  }
+
+  if (editId) {
+    await updateDoc(doc(db, "review", editId), {
+      name, country, rating, review: reviewText
+    });
+  } else {
+    await addDoc(collection(db, "review"), {
+      name, country, rating, review: reviewText, createdAt: new Date()
+    });
+  }
+
+  // Reset form
+  reviewForm.reset();
+  document.getElementById("editId").value = "";
+
+  // Reload reviews
+  loadReviews();
+});
+
+/* ====== LOAD REVIEWS FUNCTION ====== */
+async function loadReviews() {
+  const reviewList = document.getElementById("reviewList") || document.createElement("div");
+  reviewList.id = "reviewList";
+  reviewList.innerHTML = "";
+
+  const snapshot = await getDocs(collection(db, "review"));
+  snapshot.forEach(docSnap => {
+    const d = docSnap.data();
+    reviewList.innerHTML += `
+      <div class=" p-3 mb-2 col-lg-6 shadow">
+        <h6>${d.name} <small class="text-muted">(${d.country})</small></h6>
+        <div>Rating: ${d.rating}/5</div>
+        <p>${d.review}</p>
+       <div>
+         <button class="btn me-2" onclick="editReview('${docSnap.id}','${d.name}','${d.country}','${d.rating}','${d.review}')"><i class="hgi hgi-stroke hgi-pencil-edit-02"></i></button>
+        <button class="btn " onclick="deleteReview('${docSnap.id}')"><i class="hgi hgi-stroke hgi-delete-01"></i></button>
+        </div>
+      </div>
+    `;
+  });
+
+  if (!document.getElementById("reviewList")) {
+    document.body.appendChild(reviewList);
+  }
+}
+
+/* ===== EDIT FUNCTION ===== */
+window.editReview = (id, name, country, rating, review) => {
+  document.getElementById("editId").value = id;
+  document.getElementById("name").value = name;
+  document.getElementById("country").value = country;
+  document.getElementById("rating").value = rating;
+  document.getElementById("reviewText").value = review;
+};
+
+/* ===== DELETE FUNCTION ===== */
+window.deleteReview = async (id) => {
+  if (confirm("Delete review?")) {
+    await deleteDoc(doc(db, "review", id));
+    loadReviews();
+  }
+};
+
+/* ===== INITIAL LOAD ===== */
+loadReviews();
+    </script>
+    <script src="js/app.js" type="module"></script>
+  </body>
+
+</html>
