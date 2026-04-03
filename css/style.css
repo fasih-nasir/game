@@ -11,11 +11,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Orbitron:wght@400..900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-	--font-family-Cinzel: "Oxanium", sans-serif;
-    --color:#1e1e20;
-    --color1:#ffffff ;
+	--font-family-Cinzel: "Montserrat", sans-serif;
+    --color:rgb(5, 5, 56);
+      --color1:#ffffff ;
 
     --color-grey:rgb(75, 75, 75);
     --bg-gray:rgb(247, 247, 247);
@@ -61,6 +62,43 @@ body {
         top: 10px !important; 
         height: max-content !important;
     }
+}
+
+.btn_default {
+  position: relative;
+  overflow: hidden; /* IMPORTANT */
+  /* padding: 10px 20px !important; */
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--color) !important;
+}
+
+/* content above */
+.btn_default .content {
+  position: relative;
+  z-index: 2;
+}
+
+/* bottom fill layer */
+.default-btn-abs {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%; /* start from bottom */
+  background-color: var(--color);
+  transition: height 0.5s ease;
+  z-index: 1;
+}
+
+/* hover effect */
+.btn_default:hover .default-btn-abs {
+  height: 100%; /* fill upward */
+}
+
+/* text color change on hover */
+.btn_default:hover a,
+.btn_default:hover i {
+  color: #fff !important;
 }
    #editor {
       height: 200px;
@@ -132,8 +170,15 @@ div{
     background-size: cover !important;
     margin: 0% auto !important;
 }
+.cars_ind button{
+    margin: 0% !important;
+    border: 10px solid var(--bg-gray) !important;
+    background-color:var(--color)!important;
+    padding: 5px 10px !important;
+    border-radius: 50px !important;
+}
 .home_slider .carousel-item{
-    background-color: rgb(241, 241, 241) !important;
+    background-color: white !important;
     height: 750px !important;
 }
 .img_banner {
@@ -225,7 +270,7 @@ height : max-content !important ;
     }
 
 .bg{
-    background-color: var(--color) !important;
+    background: var(--color) !important;
 }
 .proudct_table{
     font-size: 13px !important;
