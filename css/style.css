@@ -28,10 +28,12 @@ body {
 	height: 100%;
 	font-family:var(--font-family-Cinzel) !important;
 	-webkit-font-smoothing: antialiased;
+    overflow-x: hidden !important;
+
  
 }
 .responsive{
-    overflow-x: hidden !important;
+    /* overflow-x: hidden !important; */
         max-width: 1600px !important;
  
         margin: 0% auto !important;
@@ -303,7 +305,21 @@ height : max-content !important ;
   .swiper-slide {
     transition: 0.6s ease-in-out !important;
   }
+  .swiper-rel{
+    /* height: 400px !important; */
+    position: relative !important;
+  }
+.swiper-abs{
+    z-index: -1;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+   width: 100% !important;
+    height: 50% !important;
+    bottom: 15%;
+    border-radius: 15px !important;
+    background-color: white !important;
+    position: absolute !important;
 
+}
   /* Pagination bullets */
   .swiper-pagination-bullet {
     transition: 0.6s ease-in-out !important;
@@ -488,7 +504,7 @@ height : max-content !important ;
         padding: .5rem 1rem;
         font-weight: 500;
     }
-    .nav-item .nav-link {
+   .navbar_lg .nav-item .nav-link {
         color: white !important; /* Active tab link color (orange) */
         border-bottom-color:var(--color); /* Active tab underline color */
         background-color: transparent; /* No background on active */
@@ -529,16 +545,6 @@ height : max-content !important ;
    display: block;
     
     }
-.nav_pills_link.active {
-  background-color:var(--color) !important;
-  color: #fff !important;
-  font-weight: 600;
-  border-radius: 8px;
-}
-.nav_pills_link{
-    color: var(--color-grey) !important;
-}
-
 .nav_pills_div{
     position: sticky !important;
     height: max-content !important;
@@ -715,7 +721,7 @@ form{
 .img_of_feature_stires{
     border: 1px solid rgba(211, 211, 211, 0.767);
     /* object-fit: c !important; */
-    height: 170px !important;
+    height: max-content !important;
     object-fit: cover !important;
     border-radius: 10% !important;
     /* width: 100% !important; */
@@ -738,9 +744,9 @@ form{
 .img_of_feature_stire{
     object-fit: cover !important;
 
-    border: 1px solid rgba(211, 211, 211, 0.767);
+    /* border: 1px solid rgba(211, 211, 211, 0.767); */
     /* object-fit: c !important; */
-    height: 200px !important;
+    /* height: 200px !important; */
 
     border-radius: 10px !important;
     /* width: 100% !important; */

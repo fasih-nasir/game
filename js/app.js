@@ -19,13 +19,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAGvGo_Xnoe78FQoroWwy-ce0KGbjoDFDs",
-  authDomain: "gimpex-36c36.firebaseapp.com",
-  projectId: "gimpex-36c36",
-  storageBucket: "gimpex-36c36.firebasestorage.app",
-  messagingSenderId: "94177183875",
-  appId: "1:94177183875:web:0bbb05df6bcb4cfc40f3b6",
-  measurementId: "G-304FGPTCHZ"
+  apiKey: "AIzaSyB7tXC_WwsU-bxv3xqFt9JTdFUj-3wmmms",
+  authDomain: "game-3df4d.firebaseapp.com",
+  projectId: "game-3df4d",
+  storageBucket: "game-3df4d.firebasestorage.app",
+  messagingSenderId: "324919159749",
+  appId: "1:324919159749:web:1ef8ee2197c68bcf65b9ac",
+  measurementId: "G-E9912X3V8B"
 };
 
 // Initialize Firebase
@@ -496,7 +496,7 @@ if (store_innerhtml) {
         slidesPerView: 2,
       },
       768: {
-        slidesPerView: 5,
+        slidesPerView: 4,
       },
     },
   });
@@ -573,18 +573,25 @@ if (category_innerhtml) {
           
         category_innerhtml.innerHTML += `
     
-       <div class="swiper-slide ">
+       <div class="swiper-slide swiper-rel">
          <a href="category/categories.html?=${
            docSnap.data().slug
          }" class="text-decoration-none">
-                     <div class="col-lg-12 py-2 round mx-0 bg-white  text-center ">
+                     <div class="col-lg-12 py-2 round mx-0   text-start ">
                         <img src=${
                           docSnap.data().img
-                        } class="img-fluid img_of_feature_stire bg-gray col-lg-11 mx-auto " alt="">
+                        } class="img-fluid img_of_feature_stire  col-lg-12 mx-auto border-0" alt="">
+                        
+                        <div class="col-lg-11 mx-auto">
                         <h5 class="mt-3 text-dark">${
                           docSnap.data().name
                         }</h5>
+                        </div>
                     
+                        </div>
+
+                        <div class="swiper-abs">
+                     
                         </div>
                    </a>
        </div>
