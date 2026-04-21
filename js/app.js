@@ -136,7 +136,7 @@ loadCart();
 
         //  ================== store_dropdown CODE START ==================
         var category_dropdown = document.getElementById("category_dropdown");
-        console.log(category_dropdown);
+        // console.log(category_dropdown);
         
         if (category_dropdown) {
     
@@ -155,7 +155,7 @@ loadCart();
       let counter = 1;
 
       snapshot.forEach((docSnap) => {
-        console.log(docSnap.data());
+        // console.log(docSnap.data());
         
         
 if(docSnap.data().status == "active" ){
@@ -3016,3 +3016,21 @@ Swal.fire({
 });
 }
 // ================ CONTACT PAGE CODE END =======================
+
+async function getData() {
+  try {
+    const response = await fetch("https://myapi-git-main-fasih-nasirs-projects-16b907a5.vercel.app/api/contact");
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    console.log(data);
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+getData();
