@@ -15,7 +15,7 @@
 
 :root{
 	--font-family-Cinzel: "Montserrat", sans-serif;
-    --color:rgb(5, 5, 56);
+    --color:rgb(48, 187, 164);
       --color1:#ffffff ;
 
     --color-grey:rgb(75, 75, 75);
@@ -108,7 +108,16 @@ body {
 div{
     transition: 0.4s ease-in-out !important;
 }
-
+.inp_quan{
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    background-color:rgb(224, 224, 224) !important;
+}
+.round_20{
+    border-radius: 20px !important;
+    
+}
 .coup_code_modal{
     border: 3px dashed var(--color) !important ;
 }
@@ -319,7 +328,7 @@ background-color: var(--color) !important;
 
 }
 .swiper-rel:hover .img_of_feature_stire {
-    transform: scale(1.1) rotate(-30deg) !important;
+    transform: scale(1.1) !important;
 
 }
 .swiper-abs{
@@ -765,7 +774,7 @@ form{
 
     /* border: 1px solid rgba(211, 211, 211, 0.767); */
     /* object-fit: c !important; */
-    /* height: 200px !important; */
+    height: 300px !important;
 
     border-radius: 10px !important;
     /* width: 100% !important; */

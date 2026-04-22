@@ -770,7 +770,7 @@ if (product_home_innerhtml) {
     </div>
 
     <!-- CONTENT -->
-    <div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column text-center">
 
       <h5 class="fs-6 fw-medium mb-2">${data.productTitle}</h5>
 
@@ -900,7 +900,7 @@ if (arrival_home_innerhtml) {
     </div>
 
     <!-- CONTENT -->
-    <div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column text-center">
 
       <h5 class="fs-6 fw-medium mb-2">${data.productTitle}</h5>
 
@@ -1093,28 +1093,42 @@ if (loc_path.pathname == "/product.html") {
             </div>
             
             <div class="col-md-6">
-                <div class="d-flex align-items-center mb-2">
-                    <span class="text-success me-2">★★★★★</span>
-                    <small class="text-muted">Trusted by 10,000+ customers</small>
-                </div>
                 <h2 class="fw-bold mb-3">${s.data().productTitle}</h2>
                 <p class="h4 text-dark mb-4 " id="price_inner">Rs ${s.data().price}</p>
+
+
+                   
+                <p class="text-muted small col-12">
+                 ${s.data().description.slice(0,150)
+         
+                 
+}         .... </p>
                 
-              <div class="mb-4 col-3">
-  <label class="form-label fw-normal pe-2 mt-2">Quantity</label>
+                
+              <div class="mb-4 col-12 d-flex flex-row justify-content-between">
+
+              <div class="col-4 me-3">
   <input 
-    class="form-control" 
+    class="form-control inp_quan py-2" 
     type="number" 
     min="25" 
     max="9999"
     id="quantity"
     value="1"
     placeholder="Minimum 25" />
+              </div>
+              <div class="col-7">
+                <button class="btn btn-outline-dark addtocart inp_quan py-2 col-12" type="button">Add to cart</button>
+                  
+              </div>
+              <div class="col-1 d-flex flex-row align-items-center justify-content-center">
+              <i class="hgi hgi-stroke hgi-rounded hgi-star fs-3"></i>
+              </div>
+
 </div>
                 
                 <div class="d-flex flex-row justify-content-start gap-3 mb-3">
-                    <button class="btn btn-outline-dark addtocart py-2" type="button">Add to cart</button>
-                    <button class="btn bg py-2 text-white buyNowBtn"  id="buyNowBtn" type="button"
+                    <button class="btn bg py-2 text-white col-12 round_20 buyNowBtn"  id="buyNowBtn" type="button"
                     
                       data-name="${s.data().productTitle}" 
                       data-price="${s.data().price}"
@@ -1124,14 +1138,35 @@ if (loc_path.pathname == "/product.html") {
 
                     > Buy it now</button>
                 </div>
-                
-                <p class="text-muted small">
-                 ${s.data().description
-}   </p>
-                
+             
+
+                <div class="d-flex flex-row align-items-center">
+                <a href="#question" class="text-dark text-decoration-none pe-2 "><i class="hgi hgi-stroke hgi-rounded mt-1 hgi-help-circle"></i> Ask a Question</a>
+             <button id="shareBtn" class="bg-transparent border-0 px-2 mt-1">
+             <i class="hgi hgi-stroke hgi-rounded hgi-share-08"></i></button>
+             Social Share
+
+                </div>
                
             </div>`;
+const shareBtn = document.getElementById("shareBtn");
 
+shareBtn.addEventListener("click", async () => {
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: "My Website",
+                text: "Check this amazing site!",
+                url: window.location.href
+            });
+            console.log("Shared successfully");
+        } catch (error) {
+            console.log("Sharing failed:", error);
+        }
+    } else {
+        alert("Web Share API not supported in this browser.");
+    }
+});
             // ================== BUY NOW WHATSAAP CODE START ====================
             document.addEventListener("click", (e) => {
   if (e.target.classList.contains("buyNowBtn")) {
@@ -1273,7 +1308,7 @@ if (product_home_innerhtml_like) {
     </div>
 
     <!-- CONTENT -->
-    <div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column text-center">
 
       <h5 class="fs-6 fw-medium mb-2">${data.productTitle}</h5>
 
@@ -1411,7 +1446,7 @@ if (loc_path.pathname == "/category/categories.html") {
     </div>
 
     <!-- CONTENT -->
-    <div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column text-center">
 
       <h5 class="fs-6 fw-medium mb-2">${s.data().productTitle}</h5>
 
@@ -1918,7 +1953,7 @@ if (loc_path.pathname == "/best_selling.html") {
     </div>
 
     <!-- CONTENT -->
-    <div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column text-center">
 
       <h5 class="fs-6 fw-medium mb-2">${data.productTitle}</h5>
 
@@ -2017,7 +2052,7 @@ if (loc_path.pathname == "/new_arrivals.html") {
     </div>
 
     <!-- CONTENT -->
-    <div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column text-center">
 
       <h5 class="fs-6 fw-medium mb-2">${data.productTitle}</h5>
 
@@ -2139,7 +2174,7 @@ onSnapshot(categoryCollection, (snapshot) => {
               <span class="badge bg">${blog.category_id}</span>
               <small>${new Date(blog.createdAt).toLocaleDateString()}</small>
             </div>
-            <div class="card-body d-flex flex-column">
+            <div class="card-body d-flex flex-column text-center">
               <h5 class="card-title">${blog.title || "-"}</h5>
               <p class="card-text">${blog.excerpt?.substring(0, 300) || ""}...</p>
               <div class="d-flex flex-row justify-content-between align-align-items-center">
