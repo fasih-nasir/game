@@ -1144,3 +1144,262 @@ loadContacts();
 // ===================== PRODUCTS TABLE CODE END ======================
 
 // ============================= view_contact code end =========================
+
+
+
+
+// ============================= view_query code start =======================
+var view_query=document.getElementById("view_query");
+if(view_query){
+
+
+  // ===================== PRODUCTS TABLE CODE START ======================
+
+const productTableBody = document.getElementById("prodcut_of_home_page");
+
+
+async function loadContacts() {
+ productTableBody.innerHTML = ""; // clear table
+  let count = 1;
+
+  try {
+    const snapshot = await getDocs(collection(db, "ask_question"));
+
+    if (snapshot.empty) {
+     productTableBody.innerHTML = `
+        <tr>
+          <td colspan="9" class="text-center text-muted">
+            No contact records found
+          </td>
+        </tr>`;
+      return;
+    }
+
+    snapshot.forEach(doc => {
+      document.getElementById("total_Query").innerHTML=snapshot.size;
+      const data = doc.data();
+      // console.log(data);
+      
+
+  const docId = doc.id;
+     productTableBody.innerHTML += `
+     <tr>
+  <td>${count++}</td>
+
+  <td>${data.name || "-"}</td>
+  <td>${data.email || "-"}</td>
+  <td>${data.phone || "-"}</td>
+  <td>${data.message || "-"}</td>
+  <td>${data.product || "-"}</td>
+
+
+  <td>
+    ${
+      data.createdAt
+        ? new Date(data.createdAt).toLocaleString()
+        : "-"
+    }
+  </td>
+
+  <td>
+    <button class="btn btn-sm btn-delete" data-id="${docId}">
+      <i class="hgi hgi-stroke hgi-delete-01 fs-5 text-danger"></i>
+    </button>
+  </td>
+</tr>
+      `;
+    });
+
+      // Attach delete event listeners
+      document.querySelectorAll(".btn-delete").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const docId = btn.dataset.id;
+          await deleteContact(docId);
+        });
+      });
+
+  } catch (error) {
+    console.error("Error loading contacts:", error);
+  } // ---------------- DELETE FUNCTION ----------------
+  async function deleteContact(docId) {
+
+
+    if (!confirm("Are you sure you want to delete this contact?")) return;
+
+    try {
+      await deleteDoc(doc(db, "ask_question", docId));
+
+      alert("Contact deleted successfully ✅");
+loadContacts();
+
+      // Remove row from table instantly
+      const row = document.getElementById(`row-${docId}`);
+      if (row) row.remove();
+
+    } catch (error) {
+      console.error("Error deleting contact:", error);
+      alert("Failed to delete contact ❌");
+    }
+  }
+
+}
+
+// call function
+loadContacts();
+}
+
+// ===================== PRODUCTS TABLE CODE END ======================
+
+// ============================= view_query code end =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========================== REVIEW CODE START =============================
+
+
+
+
+
+// ============================= view_contact code start =======================
+var view_review=document.getElementById("view_review");
+if(view_review){
+
+
+  // ===================== PRODUCTS TABLE CODE START ======================
+
+const productTableBody = document.getElementById("prodcut_of_home_page");
+
+
+async function loadContacts() {
+ productTableBody.innerHTML = ""; // clear table
+  let count = 1;
+
+  try {
+    const snapshot = await getDocs(collection(db, "review"));
+
+    if (snapshot.empty) {
+     productTableBody.innerHTML = `
+        <tr>
+          <td colspan="9" class="text-center text-muted">
+            No review records found
+          </td>
+        </tr>`;
+      return;
+    }
+
+    snapshot.forEach(doc => {
+      document.getElementById("total_contact").innerHTML=snapshot.size;
+      const data = doc.data();
+console.log(data);
+
+  const docId = doc.id;
+     productTableBody.innerHTML += `
+        <tr>
+          <td>${count++}</td>
+          <td>${data.name || "-"}</td>
+          <td>${data.email || "-"}</td>
+
+          <td>${data.review || "-"}</td>
+          <td>${data.rating || "-"}</td>
+
+         <td>
+  ${data.createdAt 
+    ? new Date(data.createdAt).toLocaleString()
+    : "-"}
+</td>
+         
+          <td>
+          
+          
+            <button class="btn btn-sm ${data.approved ? 'btn-success' : 'btn-danger'} btn-approve"
+    data-id="${docId}"
+    data-status="${data.approved}">
+    
+    ${data.approved ? "Approved" : "Approve"}
+  </button>
+          </td>
+<td>
+              <button class="btn btn-sm btn-delete" data-id="${(docId)
+              }">
+                <i class="hgi hgi-stroke hgi-delete-01 fs-5 text-danger"></i>
+              </button>
+            </td>
+        </tr>
+      `;
+    });
+
+      // Attach delete event listeners
+      document.querySelectorAll(".btn-delete").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const docId = btn.dataset.id;
+          await deleteContact(docId);
+        });
+      });
+      document.querySelectorAll(".btn-approve").forEach(btn => {
+  btn.addEventListener("click", async () => {
+
+    const docId = btn.dataset.id;
+    const currentStatus = btn.dataset.status === "true";
+
+    try {
+      await updateDoc(doc(db, "review", docId), {
+        approved: !currentStatus
+      });
+
+      alert("Review status updated ✅");
+
+      loadContacts(); // reload table
+
+    } catch (error) {
+      console.error(error);
+      alert("Failed to update ❌");
+    }
+
+  });
+});
+
+  } catch (error) {
+    console.error("Error loading contacts:", error);
+  } // ---------------- DELETE FUNCTION ----------------
+  async function deleteContact(docId) {
+
+
+    if (!confirm("Are you sure you want to delete this contact?")) return;
+
+    try {
+      await deleteDoc(doc(db, "contact", docId));
+
+      alert("Contact deleted successfully ✅");
+loadContacts();
+
+      // Remove row from table instantly
+      const row = document.getElementById(`row-${docId}`);
+      if (row) row.remove();
+
+    } catch (error) {
+      console.error("Error deleting contact:", error);
+      alert("Failed to delete contact ❌");
+    }
+  }
+
+}
+
+// call function
+loadContacts();
+}
+
+// ===================== PRODUCTS TABLE CODE END ======================
+
+// ============================= view_review code end =========================
+
+// ========================== REVIDE CODE END= =======================================

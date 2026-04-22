@@ -8,8 +8,7 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>product | Veroroma | Timeless Jewelry & Elegant Rings for Every
-      Occasion</title>
+    <title>Contact </title>
     <link rel="shortcut icon" href="/assets/logo/favicon.png" type="image/x-icon">
     <!-- Google Font -->
     <link
@@ -30,7 +29,7 @@
     <!-- =========== MAIN CODE START ============= -->
     <main class="dash_main">
 
-      <div class="d-flex align-items-start container-fluid dash_main_div">
+      <div class="d-flex align-items-start container-fluid dash_main_div" id="view_review">
         <div id="nav_pills" class="col-lg-2 h-100"></div>
         <div class="tab-content col-lg-10 " id="v-pills-tabContent">
           <!-- =========== HOME CODE START ============== -->
@@ -59,54 +58,53 @@
 
                             <!-- ====== TOP CARD'S CODE END ======== -->
               <!-- ========== ADD PRODUCT CODE START ============= -->
-              <div class="container-fluid py-2 px-3 overflow_y">
+              <div class="container-fluid py-2 px-3">
 
                 <!-- ======== MANAGE PRODCUT CODE START ======== -->
                 <div class="row  py-1">
-                
+                  <div
+                    class="col-lg-12 d-flex flex-row justify-content-between align-items-center">
+                    <h5>Manage Review</h5>
+                    <h5>Total Review : <span id="total_contact">
+                        <div
+                          class="spinner-border spinner-border-sm  fw-lighter"
+                          role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </span></h5>
+                  </div>
                 </div>
                 <!-- ======== MANAGE PRODCUT CODE END ======== -->
 
                 <!-- ======== FILTER PRODUCT CODE START ======== -->
-               <!-- ================= REVIEW FORM ================= -->
-<div class="card p-4 shadow-sm mb-4 ">
-  <h4 class="mb-3">Add Review</h4>
-
-  <form id="reviewForm" class="row g-2">
-    <input type="hidden" id="editId">
-
-    <div class="mb-2 col-lg-4">
-      <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-    </div>
-
-    <div class="mb-2 col-lg-4">
-      <input type="text" id="country" class="form-control" placeholder="Country" required>
-    </div>
-
-    <!-- Rating as Number Input -->
-    <div class="mb-2 col-lg-4">
-      <!-- <label for="rating" class="form-label"> </label> -->
-      <input type="number" id="rating" class="form-control" min="1" max="5" placeholder="Enter rating Rating (1-5) Write in Number" required>
-    </div>
-
-    <div class="mb-3 col-lg-12">
-      <textarea id="reviewText" class="form-control" placeholder="Write your review" required></textarea>
-    </div>
-
-    <button type="submit" class="btn bg text-white col-auto">Submit Review</button>
-  </form>
-</div>
-
-  <!-- ================= REVIEW LIST ================= -->
-<!-- <h5>Review Here</h5> -->
-<div class="ps-2">
-<h4>Review Here</h4>
-
-</div>  
-<div id="reviewList" class="row g-1"></div>
-
+              
                 <!-- ======== FILTER PRODUCT CODE END ======== -->
 
+                <div
+                  class="row  col-lg-12 rounded-3 mx-auto border rounded-3 row_product">
+                  <table class="table table-bordered proudct_table">
+                    <thead
+                      class="table-success  rounded-3 py-3 position-sticky top-0 mb-2">
+                      <tr>
+                        <th class="col-1">#</th>
+                        <th class="col-2">Name</th>
+                        <th class="col-2">Email</th>
+                        <th class="col-2">Review</th>
+                        <th class="col-2">Rate</th>
+
+                        <th class="col-2">Time</th>
+                        <th class="col-2">Approved</th>
+
+<th class="col-3">Crud</th>
+
+                      </tr>
+                    </thead>
+                    <tbody id="prodcut_of_home_page">
+
+                    </tbody>
+                  </table>
+
+                </div>
               </div>
               <!-- ========== ADD PRODUCT CODE END ============= -->
 
@@ -131,115 +129,9 @@
       crossorigin="anonymous">
         </script>
 
-    <!-- Firebase and App Scripts -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-
-  import { getFirestore, collection, getDocs,getDoc,doc ,addDoc,deleteDoc, updateDoc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-    const firebaseConfig = {
-  apiKey: "AIzaSyB7tXC_WwsU-bxv3xqFt9JTdFUj-3wmmms",
-  authDomain: "game-3df4d.firebaseapp.com",
-  projectId: "game-3df4d",
-  storageBucket: "game-3df4d.firebasestorage.app",
-  messagingSenderId: "324919159749",
-  appId: "1:324919159749:web:1ef8ee2197c68bcf65b9ac",
-  measurementId: "G-E9912X3V8B"
-};
-const app = initializeApp(firebaseConfig);
-
- 
-    
-
-const db = getFirestore(app);
-    // ========== DOM References ==========
-
-    (app);
-
-// const productTableBody = document.getElementById("prodcut_of_home_page");
-
-// Fetch all products
-const reviewForm = document.getElementById("reviewForm");
-
-reviewForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const country = document.getElementById("country").value.trim();
-  const rating = parseInt(document.getElementById("rating").value);
-  const reviewText = document.getElementById("reviewText").value.trim();
-  const editId = document.getElementById("editId").value;
-
-  if (!name || !country || !reviewText || !rating || rating < 1 || rating > 5) {
-    alert("Please fill all fields correctly (Rating 1-5)");
-    return;
-  }
-
-  if (editId) {
-    await updateDoc(doc(db, "review", editId), {
-      name, country, rating, review: reviewText
-    });
-  } else {
-    await addDoc(collection(db, "review"), {
-      name, country, rating, review: reviewText, createdAt: new Date()
-    });
-  }
-
-  // Reset form
-  reviewForm.reset();
-  document.getElementById("editId").value = "";
-
-  // Reload reviews
-  loadReviews();
-});
-
-/* ====== LOAD REVIEWS FUNCTION ====== */
-async function loadReviews() {
-  const reviewList = document.getElementById("reviewList") || document.createElement("div");
-  reviewList.id = "reviewList";
-  reviewList.innerHTML = "";
-
-  const snapshot = await getDocs(collection(db, "review"));
-  snapshot.forEach(docSnap => {
-    const d = docSnap.data();
-    reviewList.innerHTML += `
-      <div class=" p-3 mb-2 col-lg-6 shadow">
-        <h6>${d.name} <small class="text-muted">(${d.country})</small></h6>
-        <div>Rating: ${d.rating}/5</div>
-        <p>${d.review}</p>
-       <div>
-         <button class="btn me-2" onclick="editReview('${docSnap.id}','${d.name}','${d.country}','${d.rating}','${d.review}')"><i class="hgi hgi-stroke hgi-pencil-edit-02"></i></button>
-        <button class="btn " onclick="deleteReview('${docSnap.id}')"><i class="hgi hgi-stroke hgi-delete-01"></i></button>
-        </div>
-      </div>
-    `;
-  });
-
-  if (!document.getElementById("reviewList")) {
-    document.body.appendChild(reviewList);
-  }
-}
-
-/* ===== EDIT FUNCTION ===== */
-window.editReview = (id, name, country, rating, review) => {
-  document.getElementById("editId").value = id;
-  document.getElementById("name").value = name;
-  document.getElementById("country").value = country;
-  document.getElementById("rating").value = rating;
-  document.getElementById("reviewText").value = review;
-};
-
-/* ===== DELETE FUNCTION ===== */
-window.deleteReview = async (id) => {
-  if (confirm("Delete review?")) {
-    await deleteDoc(doc(db, "review", id));
-    loadReviews();
-  }
-};
-
-/* ===== INITIAL LOAD ===== */
-loadReviews();
-    </script>
+   
     <script src="js/app.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 
 </html>

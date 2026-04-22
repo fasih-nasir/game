@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
        // ========== ADD TO CART CODE START ===============
        function loadCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("gamecart")) || [];
 
   const cartContainer = document.getElementById("cartItems");
   const cartTitle = document.getElementById("offcanvasScrollingLabel");
@@ -99,7 +99,7 @@ document.getElementById("cart_length").innerHTML=cart.length;
 
 }document.addEventListener("click", (e) => {
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("gamecart")) || [];
 
   // ➕ INCREASE
   if (e.target.classList.contains("qtyPlus")) {
@@ -125,7 +125,7 @@ document.getElementById("cart_length").innerHTML=cart.length;
     cart.splice(i, 1);
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("gamecart", JSON.stringify(cart));
   
   loadCart();
 
@@ -1080,7 +1080,12 @@ if (loc_path.pathname == "/product.html") {
         // console.log(s.data().price);
         
         if (s.data().slug == page_name) {
-          
+            var desc=document.getElementById("desc");
+          desc.innerHTML=`
+            ${s.data().description
+                 
+}  
+          `
           price=s.data().price;
           category_var=s.data().category;
 
@@ -1141,14 +1146,37 @@ if (loc_path.pathname == "/product.html") {
              
 
                 <div class="d-flex flex-row align-items-center">
-                <a href="#question" class="text-dark text-decoration-none pe-2 "><i class="hgi hgi-stroke hgi-rounded mt-1 hgi-help-circle"></i> Ask a Question</a>
+              
+                <button class="bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#questionModal">
+  <i class="hgi hgi-stroke hgi-rounded mt-1 hgi-help-circle"></i>
+                Ask a Question
+</button>
+              
              <button id="shareBtn" class="bg-transparent border-0 px-2 mt-1">
-             <i class="hgi hgi-stroke hgi-rounded hgi-share-08"></i></button>
-             Social Share
+             <i class="hgi hgi-stroke hgi-rounded hgi-share-08"></i>       Social Share</button>
+      
 
                 </div>
-               
+               <div class="guarantee-safe-checkout py-4 my-2 round_20 bg-white bg-[#ededed]  mb-9 text-center w-full rounded-lg overflow-hidden">
+		<h5 class="text-[13px] mb-4 fs-6 fw-light">
+			Guarantee safe &amp; secure checkout		</h5>
+		<img " alt="Guarantee &amp; safe checkout" src="/assets/images/checkout.png">
+	</div>
+
+  <div>
+  <ul class="list-unstyled fs_6 py-3">
+  <li class="d-flex flex-row align-align-items-center"> <i class="hgi hgi-stroke hgi-rounded hgi-timer-02 pe-2 fs_6 "></i> Estimated Delivery : 7 Days</li>
+ 
+  <li class="d-flex flex-row align-align-items-center"> <i class="hgi hgi-stroke hgi-rounded hgi-delivery-truck-02 pe-2 fs_6 "></i>
+ Free Shipping & Returns : On all order over Rs.5000 </li>
+  </ul>
+  </div>
             </div>`;
+
+
+            // ============== BOOTSTRAP MODAL CODE START ===================
+            
+            // ============== BOOTSTRAP MODAL CODE END =====================
 const shareBtn = document.getElementById("shareBtn");
 
 shareBtn.addEventListener("click", async () => {
@@ -1208,7 +1236,7 @@ document.addEventListener("click", (e) => {
     const img = document.querySelector(".buyNowBtn").dataset.img;
     const quantity = document.getElementById("quantity").value;
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("gamecart")) || [];
 
     // ✅ CHECK: product already exists?
     const alreadyExists = cart.some(item => item.name === productTitle);
@@ -1233,7 +1261,7 @@ document.addEventListener("click", (e) => {
     cart.push(product);
 
     // ✅ Save to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("gamecart", JSON.stringify(cart));
 
 
     alert("✅ Product added to cart! 🛒");
@@ -1830,6 +1858,8 @@ link
             });
           }
           getcop();
+
+        
         }
       });
     } catch (error) {
@@ -2924,7 +2954,7 @@ if(checkout_page){
   document.addEventListener("DOMContentLoaded", loadCheckout);
 
 function loadCheckout() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("gamecart")) || [];
   console.log(cart);
   
 
@@ -3052,20 +3082,123 @@ Swal.fire({
 }
 // ================ CONTACT PAGE CODE END =======================
 
-async function getData() {
-  try {
-    const response = await fetch("https://myapi-git-main-fasih-nasirs-projects-16b907a5.vercel.app/api/contact");
+// async function getData() {
+//   try {
+//     const response = await fetch("https://myapi-git-main-fasih-nasirs-projects-16b907a5.vercel.app/api/contact");
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
+
+//     const data = await response.json();
+//     console.log(data);
+
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// }
+
+// getData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const askForm = document.getElementById("ask_question");
+
+if(askForm){
+  askForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    try {
+      await addDoc(collection(db, "ask_question"), {
+        name,
+        email,
+        phone,
+        message,
+        product: page_name,
+        createdAt: new Date().toISOString()
+      });
+
+      Swal.fire({
+        title: "Success!",
+        text: "Your form is submitted",
+        icon: "success"
+      });
+
+      askForm.reset();
+
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed!");
     }
-
-    const data = await response.json();
-    console.log(data);
-
-  } catch (error) {
-    console.error("Error:", error);
-  }
+  });
 }
 
-getData();
+
+  // =============================== REVIEW CODE START ============================
+
+
+  const form = document.getElementById("reviewForm");
+
+  if (form) {
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // 🔥 MUST
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const review = document.getElementById("review").value.trim();
+
+    const selectedRatings = Array.from(
+      document.querySelectorAll('input[name="rating"]:checked')
+    ).map(el => el.value);
+
+    // ✅ Correct Validation
+    if (!name || !email || !review || selectedRatings.length === 0) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "review"), {
+        name,
+        email,
+        review,
+        rating: selectedRatings, // ✅ array store hoga
+
+        product: "Green Broccoli",
+        approved: false,
+        createdAt: new Date().toISOString()
+      });
+
+      Swal.fire({
+        title: "Submitted!",
+        text: "Your review is under approval",
+        icon: "success"
+      });
+
+      form.reset();
+
+    } catch (err) {
+      console.log(err);
+      alert("Error submitting review");
+    }
+
+  });
+  }
+  // =============================== REVIEW CODE END ===================================

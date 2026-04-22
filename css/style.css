@@ -792,6 +792,23 @@ form{
     transition: 0.9s ease-in-out !important;
 
 }
+.product_tabs .nav-link {
+    border-radius: 20px !important;
+    transition: 0.9s ease-in-out !important;
+    font-size: 18px !important;
+    border: none !important;padding: 10px 50px !important;
+    background-color: white ;
+    z-index: 122 !important;
+margin-right: 20px !important;
+    transform: scale(1) !important;
+
+}
+.product_tabs .nav-link.active{
+    z-index: 222 !important;
+    transform: scale(1.1) !important;
+    background-color: var(--color) !important;
+    color: white !important;
+}
 /* .logout_btn{
     position: absolute !important;
     bottom: 2px !important;
