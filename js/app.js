@@ -1092,7 +1092,7 @@ if (loc_path.pathname == "/product.html") {
           
           categories_inner.innerHTML = `
    <div class="col-md-6 text-center">
-                <div class="p-3 bg-white rounded shadow-sm col-lg-11">
+                <div class="p-3 bg-white rounded shadow-sm col-lg-11 product-gallery">
                     <img src="${s.data().img}" class="img-fluid rounded prodcut-songle-img" alt="Brownie Box prodcut-songle-img">
                 </div>
             </div>
@@ -1175,7 +1175,15 @@ if (loc_path.pathname == "/product.html") {
 
 
             // ============== BOOTSTRAP MODAL CODE START ===================
-            
+            const galleries = document.querySelectorAll(".product-gallery");
+
+galleries.forEach(gallery => {
+  lightGallery(gallery, {
+    selector: 'a',
+    download: false,
+    zoom: true
+  });
+});
             // ============== BOOTSTRAP MODAL CODE END =====================
 const shareBtn = document.getElementById("shareBtn");
 
