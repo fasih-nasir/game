@@ -1205,7 +1205,7 @@ shareBtn.addEventListener("click", async () => {
        const img = e.target.dataset.img;
     const quantity = document.getElementById("quantity").value;
     ;
-    const phone = "923146903187";
+    const phone = "923122811963";
     // const phone = "14258666070"
 
     const message = `Hello, I want to buy:
@@ -2944,8 +2944,6 @@ if (search_store_row) {
 }
 // =================== search_store_row code end ================
 
-
-
 // ==================== checkout_page code start =========================
 var checkout_page=document.getElementById("checkout_page");
 // console.log(checkout_page);
@@ -2953,31 +2951,39 @@ var checkout_page=document.getElementById("checkout_page");
 if(checkout_page){
   document.addEventListener("DOMContentLoaded", loadCheckout);
 
+  var cartItems;
+  var  card_html;
+  var  card_html_checkout;
+
+  
+  var subTotal = 0;
 function loadCheckout() {
-  let cart = JSON.parse(localStorage.getItem("gamecart")) || [];
-  console.log(cart);
+   cartItems = JSON.parse(localStorage.getItem("gamecart")) || [];
+// console.log(cart);
+
   
 
   const container = document.getElementById("checkoutItems");
   const subTotalEl = document.getElementById("subTotal");
   const grandTotalEl = document.getElementById("grandTotal");
 
-  if (cart.length === 0) {
+  if (cartItems.length === 0) {
     container.innerHTML = `<p class="text-center">No items in cart</p>`;
     subTotalEl.innerText = "Rs 0";
     grandTotalEl.innerText = "Rs 0";
     return;
   }
 
-  let html = "";
-  let subTotal = 0;
+ 
 
-  cart.forEach((item) => {
+  cartItems.forEach((item) => {
+    // console.log(item);
+    
     subTotal += item.total;
-    console.log(item);
+
     
 
-    html += `
+    card_html += `
       <div class="d-flex align-items-center mb-3 border-bottom pb-2">
 
         <!-- IMAGE -->
@@ -3000,10 +3006,21 @@ function loadCheckout() {
 
       </div>
     `;
+
+    card_html_checkout+=`
+    <tr>
+  <td style="padding:8px">
+    <img src="${item.img}" width="50"><br>
+    ${item.name}
+  </td>
+  <td style="padding:8px">${item.quantity}</td>
+  <td style="padding:8px">Rs ${item.total}</td>
+</tr>
+    `
   });
 
   // ✅ render items
-  container.innerHTML = html;
+  container.innerHTML = card_html;
 
   // ✅ totals
   subTotalEl.innerText = `Rs ${subTotal}`;
@@ -3011,11 +3028,197 @@ function loadCheckout() {
   const shipping = 200;
   const grandTotal = subTotal + shipping;
 
-  grandTotalEl.innerText = `Rs ${grandTotal}`;
+  // grandTotalEl.innerText = `Rs ${grandTotal}`;
 }
 loadCheckout();
+// console.log(cart);
+
+
+// ============== CHEKCOUT FORM CODE START ======================
+document.getElementById("checkout_dorm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+
+  // ================ GET VALUES FORM LOCALSTORAGE =====================
+
+  // ================ GET VALUES FROM LOCALSTOAGE ======================
+  // =========================
+  // GET VALUES
+  // =========================
+  const email = document.getElementById("email").value;
+  const news = document.getElementById("news").checked;
+
+  const firstName = document.getElementById("fname").value;
+  const lastName = document.getElementById("lname").value;
+  const address = document.getElementById("address").value;
+  const apartment = document.getElementById("apartment").value;
+  const city = document.getElementById("city").value;
+  const postal = document.getElementById("postal").value;
+  const phone = document.getElementById("phone").value;
+
+  const payment =
+    document.getElementById("card").checked ? "Card" :
+    document.getElementById("cod").checked ? "Cash on Delivery" :
+    "Bank Transfer";
+
+  const shipping = "Standard Delivery";
+  const shippingCharges = 200;
+
+  // =========================
+  // VALIDATION (basic)
+  // =========================
+  if (!email || !firstName || !address || !phone) {
+    Swal.fire("Error", "Please fill required fields", "error");
+    return;
+  }
+
+  try {
+
+    // =========================
+    // 1️⃣ FIRESTORE SAVE
+    // =========================
+    await addDoc(collection(db, "checkout"), {
+      email,
+      news,
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      postal,
+      phone,
+      payment,
+    cartItems: cartItems,
+  total: subTotal,
+      shipping,
+      shippingCharges,
+      createdAt: new Date()
+    });
+
+    // =========================
+    // 2️⃣ EMAILJS SEND
+    // =========================
+    emailjs.send("service_rkcq2pn", "template_o8keyof", {
+      contact: email,
+      newsletter: news ? "Yes" : "No",
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      postal,
+      phone,
+       cartItems: card_html_checkout,
+  total: subTotal,
+      paymentMethod: payment,
+      shippingMethod: shipping,
+      shipping: shippingCharges
+    });
+
+    // =========================
+    // SUCCESS
+  Swal.fire({
+  title: "Order Placed 🎉",
+  text: "Your order has been submitted successfully!",
+  icon: "success",
+  confirmButtonText: "OK"
+}).then(() => {
+setTimeout(() => {
+  localStorage.removeItem("gamecart");
+  window.location.href = "/";
+}, 3000);
+
+});
+
+  } catch (error) {
+    console.error(error);
+
+    Swal.fire({
+      title: "Error",
+      text: "Something went wrong!",
+      icon: "error"
+    });
+  }
+});
+// ============== CHECKOTU FORM CODE END =========================
 }
+
+
+// 
 // ==================== checkout_page code end ===========================
+
+
+
+
+
+
+
+
+
+// ================ CONTACT PAGE CODE START ======================
+var contact_form=document.getElementById("contact_form");
+if(contact_form){
+const contactForm = document.querySelector("form");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // ðŸ”¹ get values
+  const firstName = contactForm.querySelector('input[placeholder="Enter your first name"]').value;
+  const lastName = contactForm.querySelector('input[placeholder="Enter your last name"]').value;
+  const email = contactForm.querySelector('input[type="email"]').value;
+  const phone = contactForm.querySelector('input[type="tel"]').value;
+
+  const message = contactForm.querySelector("textarea").value;
+
+  try {
+    // ðŸ”¹ add to Firestore
+    await addDoc(collection(db, "contact"), {
+      firstName,
+      lastName,
+      email,
+      phone,
+     
+      message,
+      seen:"no",
+      reply:"no",
+      createdAt: new Date()
+    });
+ // ðŸ”¹ EmailJS send
+  // emailjs.send("service_3vjhp2r", "template_w1a3q2g", {
+  //     firstName,
+  //     lastName,
+  //     email,
+  //     phone,
+  //     message
+  // }).then(function(response) {
+
+  // }, function(error) {
+  //     // console.error("EmailJS Error:", error);
+  // });
+ 
+Swal.fire({
+  title: "Good job!",
+  text: "Your Form Is Submited successfully!",
+  icon: "success"
+});
+    contactForm.reset();
+
+  } catch (error) {
+    console.error("Error saving contact:", error);
+    alert("Something went wrong. Try again!");
+  }
+});
+}
+// ================ CONTACT PAGE CODE END =======================
+
+
+
+
+
+
+
+
 
 
 
